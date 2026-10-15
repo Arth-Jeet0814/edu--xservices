@@ -10,23 +10,23 @@ export default function FinalCtaSection() {
   return (
     <Section
       id="final-cta"
-      background="navy-dark"
+      background="gradient-hero"
       align="center"
-      className="border-b border-navy-800"
+      className="py-16 sm:py-24 border-t border-border"
     >
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        <span className="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-gold-400">
+      <div className="max-w-3xl mx-auto text-center space-y-6">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-primary">
           {finalCta.eyebrow}
         </span>
 
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-snug tracking-tight">
           {finalCta.h2}
         </h2>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Button
             to={finalCta.buttonPrimaryLink}
-            variant="gold"
+            variant="accent"
             size="lg"
             icon={GraduationCap}
             className="w-full sm:w-auto"
@@ -36,7 +36,7 @@ export default function FinalCtaSection() {
 
           <Button
             to={finalCta.buttonSecondaryLink}
-            variant="outlineLight"
+            variant="outline"
             size="lg"
             icon={ArrowRight}
             className="w-full sm:w-auto"
@@ -45,7 +45,7 @@ export default function FinalCtaSection() {
           </Button>
         </div>
 
-        <p className="text-xs text-slate-400 tracking-wide">
+        <p className="text-xs text-muted-foreground tracking-wide pt-2">
           {finalCta.footnote}
         </p>
       </div>

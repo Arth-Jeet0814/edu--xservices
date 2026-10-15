@@ -32,33 +32,53 @@ export default function HeroSection() {
 
   return (
     <section className="relative gradient-hero text-foreground pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-18 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-border">
-      {/* Subtle Static SVG Globe/Network Illustration */}
+      {/* Ambient Pulsing Gradient Glow Behind Hero */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-10 flex items-center justify-center"
+        className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
+        aria-hidden="true"
+      />
+
+      {/* Dynamic Animated Orbital / Celestial Network SVG */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.14] flex items-center justify-center overflow-hidden"
         aria-hidden="true"
       >
         <svg 
-          className="w-[1200px] h-[1200px] text-primary max-w-none" 
+          className="w-[1100px] h-[1100px] text-primary max-w-none" 
           viewBox="0 0 1000 1000" 
           fill="none" 
           stroke="currentColor"
         >
-          {/* Subtle concentric rings */}
-          <circle cx="500" cy="500" r="450" strokeWidth="1" strokeDasharray="6 6" />
-          <circle cx="500" cy="500" r="350" strokeWidth="1.5" />
-          <circle cx="500" cy="500" r="250" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="500" cy="500" r="150" strokeWidth="1.5" />
+          {/* Outer orbital plane rotating slowly clockwise */}
+          <g className="animate-spin-slow">
+            <circle cx="500" cy="500" r="450" strokeWidth="1" strokeDasharray="8 8" />
+            <ellipse cx="500" cy="500" rx="450" ry="180" strokeWidth="1.2" transform="rotate(-25 500 500)" />
+            <circle cx="950" cy="500" r="6" fill="currentColor" opacity="0.6" />
+            <circle cx="50" cy="500" r="4" fill="currentColor" opacity="0.4" />
+          </g>
 
-          {/* Ellipses representing global orbital planes */}
-          <ellipse cx="500" cy="500" rx="450" ry="180" strokeWidth="1.2" transform="rotate(-25 500 500)" />
-          <ellipse cx="500" cy="500" rx="450" ry="180" strokeWidth="1.2" transform="rotate(35 500 500)" />
-          <ellipse cx="500" cy="500" rx="450" ry="180" strokeWidth="1.2" transform="rotate(85 500 500)" />
+          {/* Inner orbital plane counter-rotating */}
+          <g className="animate-spin-reverse-slow">
+            <circle cx="500" cy="500" r="350" strokeWidth="1.5" />
+            <circle cx="500" cy="500" r="250" strokeWidth="1" strokeDasharray="6 6" />
+            <ellipse cx="500" cy="500" rx="420" ry="160" strokeWidth="1.2" transform="rotate(45 500 500)" />
+            <circle cx="850" cy="500" r="5" fill="currentColor" opacity="0.6" />
+          </g>
+
+          {/* Core harmonic anchor rings */}
+          <circle cx="500" cy="500" r="160" strokeWidth="1.5" />
+          <ellipse cx="500" cy="500" rx="380" ry="140" strokeWidth="1.2" transform="rotate(85 500 500)" />
+          <circle cx="500" cy="500" r="6" fill="currentColor" opacity="0.3" className="animate-ping" />
         </svg>
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-        {/* Eyebrow */}
-        <div className="animate-hero-1 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-background/90 border border-border text-primary text-xs font-bold tracking-wide shadow-soft mb-4 sm:mb-5">
+        {/* Eyebrow with Pulsing Live Status Radar Dot */}
+        <div className="animate-hero-1 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-background/95 border border-border text-primary text-xs font-bold tracking-wide shadow-soft mb-4 sm:mb-5 hover:border-primary/30 transition-colors">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+          </span>
           <ShieldCheck className="w-4 h-4 text-primary" />
           <span>{hero.eyebrow}</span>
         </div>
@@ -181,17 +201,17 @@ export default function HeroSection() {
 
         {/* Quick Highlights Row (Target Website Metric Badges) */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-2xl mb-5">
-          <div className="rounded-2xl border border-border bg-card/90 p-3 shadow-soft backdrop-blur-xs text-center">
+          <div className="rounded-2xl border border-border bg-card/90 p-3.5 shadow-soft backdrop-blur-xs text-center card-hover-lift hover:border-primary/40 hover:scale-[1.02] cursor-default">
             <p className="text-xl sm:text-2xl font-extrabold text-primary">24+</p>
-            <p className="text-xs font-semibold text-muted-foreground">Study Destinations</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Study Destinations</p>
           </div>
-          <div className="rounded-2xl border border-border bg-card/90 p-3 shadow-soft backdrop-blur-xs text-center">
+          <div className="rounded-2xl border border-border bg-card/90 p-3.5 shadow-soft backdrop-blur-xs text-center card-hover-lift hover:border-crimson/40 hover:scale-[1.02] cursor-default">
             <p className="text-xl sm:text-2xl font-extrabold text-crimson">500+</p>
-            <p className="text-xs font-semibold text-muted-foreground">Partner Universities</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Partner Universities</p>
           </div>
-          <div className="col-span-2 sm:col-span-1 rounded-2xl border border-border bg-card/90 p-3 shadow-soft backdrop-blur-xs text-center">
+          <div className="col-span-2 sm:col-span-1 rounded-2xl border border-border bg-card/90 p-3.5 shadow-soft backdrop-blur-xs text-center card-hover-lift hover:border-accent/40 hover:scale-[1.02] cursor-default">
             <p className="text-xl sm:text-2xl font-extrabold text-accent">96,000+</p>
-            <p className="text-xs font-semibold text-muted-foreground">Indexed Programs</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Indexed Programs</p>
           </div>
         </div>
 

@@ -6,7 +6,9 @@ import {
   ArrowRight,
   ArrowUpRight,
   Compass,
-  RefreshCw
+  RefreshCw,
+  Sparkles,
+  BookOpen,
 } from 'lucide-react';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { siteConfig, homeContent } from '../data/content';
@@ -168,41 +170,104 @@ export default function CourseFinderPage() {
   };
 
   return (
-    <div className="pt-0">
-      {/* Header */}
-      <section className="gradient-hero text-foreground py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-border text-center relative">
-        <div className="max-w-4xl mx-auto space-y-5">
-          <span className="animate-hero-1 inline-block text-xs font-bold uppercase tracking-wider text-primary bg-primary-soft/90 px-4 py-2 rounded-full border border-primary/20 shadow-soft">
-            Global Search Engine & Academic Directory
-          </span>
-          <h1 className="animate-hero-2 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
-            Course Finder
+    <div className="flex flex-col min-h-screen">
+      {/* 1. HERO SECTION (New Theme: Gradient Hero + Rotating Orbital SVGs) */}
+      <section className="relative gradient-hero text-foreground pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-border">
+        {/* Ambient Pulsing Glow */}
+        <div 
+          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
+          aria-hidden="true"
+        />
+
+        {/* Dynamic Animated Orbital Network SVG */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.14] flex items-center justify-center overflow-hidden"
+          aria-hidden="true"
+        >
+          <svg 
+            className="w-[1100px] h-[1100px] text-primary max-w-none" 
+            viewBox="0 0 1000 1000" 
+            fill="none" 
+            stroke="currentColor"
+          >
+            <g className="animate-spin-slow">
+              <circle cx="500" cy="500" r="450" strokeWidth="1" strokeDasharray="8 8" />
+              <ellipse cx="500" cy="500" rx="450" ry="180" strokeWidth="1.2" transform="rotate(-25 500 500)" />
+              <circle cx="950" cy="500" r="6" fill="currentColor" opacity="0.6" />
+            </g>
+            <g className="animate-spin-reverse-slow">
+              <circle cx="500" cy="500" r="350" strokeWidth="1.5" />
+              <circle cx="500" cy="500" r="250" strokeWidth="1" strokeDasharray="6 6" />
+              <ellipse cx="500" cy="500" rx="420" ry="160" strokeWidth="1.2" transform="rotate(45 500 500)" />
+            </g>
+            <circle cx="500" cy="500" r="160" strokeWidth="1.5" />
+            <circle cx="500" cy="500" r="6" fill="currentColor" opacity="0.3" className="animate-ping" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+          {/* Eyebrow Badge */}
+          <div className="animate-hero-1 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-background/95 border border-border text-primary text-xs font-bold tracking-wide shadow-soft mb-5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+            </span>
+            <BookOpen className="w-4 h-4 text-primary" />
+            <span>Global Search Engine & Academic Directory</span>
+          </div>
+
+          {/* H1 */}
+          <h1 className="animate-hero-2 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem] font-extrabold tracking-tight text-foreground leading-[1.12] mb-4 max-w-4xl">
+            Find Your Program Across{' '}
+            <span className="text-primary font-extrabold">96,083 Degrees</span>
           </h1>
-          <p className="animate-hero-3 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-normal">
-            Index of 96,083 programs across accredited institutions in 24 destination countries, directly matched to African secondary school curricula.
+
+          {/* Subtitle */}
+          <p className="animate-hero-3 text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-8 font-normal">
+            Directly indexed from accredited universities across 24 destination countries, cross-mapped to French Baccalauréat, WAEC, Cambridge A-Levels, and IB Diploma curricula.
           </p>
+
+          {/* Metric Highlights Row */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-4xl animate-hero-4">
+            <div className="rounded-2xl border border-border bg-card/90 p-4 shadow-soft text-center card-hover-lift hover:border-accent/40 transition-all">
+              <p className="text-2xl sm:text-3xl font-extrabold text-accent">96,083+</p>
+              <p className="text-xs font-semibold text-muted-foreground mt-0.5">Degree Programs</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card/90 p-4 shadow-soft text-center card-hover-lift hover:border-primary/40 transition-all">
+              <p className="text-2xl sm:text-3xl font-extrabold text-primary">500+</p>
+              <p className="text-xs font-semibold text-muted-foreground mt-0.5">Partner Universities</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card/90 p-4 shadow-soft text-center card-hover-lift hover:border-crimson/40 transition-all">
+              <p className="text-2xl sm:text-3xl font-extrabold text-crimson">24</p>
+              <p className="text-xs font-semibold text-muted-foreground mt-0.5">Study Destinations</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card/90 p-4 shadow-soft text-center card-hover-lift hover:border-primary/40 transition-all">
+              <p className="text-2xl sm:text-3xl font-extrabold text-primary">100%</p>
+              <p className="text-xs font-semibold text-muted-foreground mt-0.5">Accredited Pathways</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Main Search & Directory Body */}
+      {/* 2. MAIN SEARCH & DIRECTORY CONSOLE */}
       <Section
         id="finder-console"
         background="light"
         align="left"
         className="py-12 sm:py-16 border-b border-border"
       >
-        {/* Interactive Filter Control Panel */}
-        <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-card mb-10">
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-slate-100">
-            {/* Search Keyword */}
+        {/* Interactive Filter Control Panel (New Theme Card) */}
+        <div className="bg-card rounded-3xl p-6 sm:p-8 border border-border shadow-card mb-10">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-border">
+            {/* Search Keyword Input */}
             <div className="relative flex-1">
-              <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-5 h-5 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
                 placeholder="Search programs by degree title, subject or university (e.g. Artificial Intelligence, Robotics, Finance)..."
-                className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600 placeholder-slate-400"
+                className="w-full pl-11 pr-4 py-3 bg-background border border-input rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary placeholder:text-muted-foreground transition-all"
               />
             </div>
 
@@ -211,9 +276,9 @@ export default function CourseFinderPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex items-center gap-1.5 px-4 py-3 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors shrink-0"
+                className="group inline-flex items-center gap-1.5 px-4 py-3 text-xs font-semibold text-muted-foreground hover:text-foreground bg-secondary hover:bg-secondary/80 rounded-xl transition-colors shrink-0 cursor-pointer"
               >
-                <RefreshCw className="w-3.5 h-3.5" />
+                <RefreshCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-500" />
                 <span>Reset Filters</span>
               </button>
             )}
@@ -223,14 +288,14 @@ export default function CourseFinderPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-5">
             {/* Destination */}
             <div>
-              <label htmlFor="finder-dest" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
+              <label htmlFor="finder-dest" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
                 Destination Country
               </label>
               <select
                 id="finder-dest"
                 value={selectedDestination}
                 onChange={(e) => setSelectedDestination(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600"
+                className="w-full bg-background border border-input rounded-xl px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary cursor-pointer transition-all"
               >
                 <option value="">All Destinations (24 Countries)</option>
                 {courseDirectory.destinations.map((d) => (
@@ -241,16 +306,16 @@ export default function CourseFinderPage() {
 
             {/* Study Level */}
             <div>
-              <label htmlFor="finder-lvl" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
-                Degree Level
+              <label htmlFor="finder-level" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                Study Level
               </label>
               <select
-                id="finder-lvl"
+                id="finder-level"
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600"
+                className="w-full bg-background border border-input rounded-xl px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary cursor-pointer transition-all"
               >
-                <option value="">All Degree Levels</option>
+                <option value="">All Levels</option>
                 {courseDirectory.studyLevels.map((lvl) => (
                   <option key={lvl} value={lvl}>{lvl}</option>
                 ))}
@@ -259,43 +324,61 @@ export default function CourseFinderPage() {
 
             {/* Field of Study */}
             <div>
-              <label htmlFor="finder-field" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
-                Academic Discipline
+              <label htmlFor="finder-field" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                Field of Study
               </label>
               <select
                 id="finder-field"
                 value={selectedField}
-                onChange={(e) => {
-                  setSelectedField(e.target.value);
-                  setActiveQuickField('');
-                }}
-                className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600"
+                onChange={(e) => setSelectedField(e.target.value)}
+                className="w-full bg-background border border-input rounded-xl px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary cursor-pointer transition-all"
               >
-                <option value="">All Disciplines</option>
+                <option value="">All Fields of Study</option>
                 {courseDirectory.fieldsOfStudy.map((fld) => (
                   <option key={fld} value={fld}>{fld}</option>
                 ))}
               </select>
             </div>
           </div>
+
+          {/* Quick Filter Subject Pills */}
+          <div className="pt-5 mt-5 border-t border-border flex items-center gap-2 overflow-x-auto scrollbar-none">
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mr-1 shrink-0 flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-accent" /> Popular:
+            </span>
+            {courseDirectory.fieldsOfStudy.slice(0, 4).map((fld) => (
+              <button
+                key={fld}
+                type="button"
+                onClick={() => setActiveQuickField(activeQuickField === fld ? '' : fld)}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                  activeQuickField === fld
+                    ? 'bg-primary text-primary-foreground shadow-xs font-bold'
+                    : 'bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground'
+                }`}
+              >
+                {fld}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Results Counter & Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
           <div>
-            <h2 className="font-display text-2xl font-bold text-slate-900 tracking-tight">
+            <h2 className="font-display text-2xl font-bold text-foreground tracking-tight">
               Indexed Degree Programs
             </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-muted-foreground mt-0.5">
               Showing representative program index. 96,083 full records available via verified school consoles.
             </p>
           </div>
-          <div className="text-xs font-semibold text-navy-800 bg-navy-50 px-3 py-1.5 rounded-full border border-navy-200">
+          <div className="text-xs font-semibold text-primary bg-primary-soft/80 px-3.5 py-1.5 rounded-full border border-primary/20">
             {filteredPrograms.length} Featured Pathways Found
           </div>
         </div>
 
-        {/* Program Cards Grid */}
+        {/* Program Cards Grid (New Theme Cards) */}
         {filteredPrograms.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {filteredPrograms.map((prog) => (
@@ -303,14 +386,14 @@ export default function CourseFinderPage() {
                 key={prog.id}
                 variant="light"
                 hoverEffect={true}
-                className="p-6 bg-white border border-slate-200/90 flex flex-col justify-between"
+                className="p-7 bg-card border border-border rounded-3xl shadow-soft hover:shadow-card hover:border-primary/40 flex flex-col justify-between card-hover-lift transition-all duration-300"
               >
                 <div>
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 border border-gold-200 px-2.5 py-0.5 rounded-md">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-accent-foreground bg-accent/15 border border-accent/30 px-2.5 py-0.5 rounded-md">
                       {prog.level}
                     </span>
-                    <div className="flex items-center gap-1.5 text-xs text-slate-600 shrink-0">
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground shrink-0">
                       <img
                         src={`https://flagcdn.com/w40/${prog.code}.png`}
                         alt={`${prog.country} flag`}
@@ -320,38 +403,38 @@ export default function CourseFinderPage() {
                     </div>
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-slate-900 mb-1.5 leading-snug tracking-tight">
+                  <h3 className="font-display text-xl font-bold text-foreground mb-1.5 leading-snug tracking-tight">
                     {prog.title}
                   </h3>
 
-                  <p className="text-sm font-semibold text-navy-800 mb-4 flex items-center gap-1.5">
-                    <Building className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <p className="text-sm font-semibold text-primary mb-4 flex items-center gap-1.5">
+                    <Building className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
                     <span>{prog.university}</span>
                   </p>
 
-                  <div className="space-y-1.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
+                  <div className="space-y-1.5 text-xs text-muted-foreground pt-3 border-t border-border">
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Duration & Language:</span>
-                      <span className="font-medium text-slate-800">{prog.duration} · {prog.language}</span>
+                      <span className="text-muted-foreground">Duration & Language:</span>
+                      <span className="font-medium text-foreground">{prog.duration} · {prog.language}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Accredited Equivalency:</span>
-                      <span className="font-medium text-slate-800">{prog.curricula}</span>
+                      <span className="text-muted-foreground">Accredited Equivalency:</span>
+                      <span className="font-medium text-foreground">{prog.curricula}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Institutional Accord:</span>
-                      <span className="font-semibold text-gold-700">{prog.scholarship}</span>
+                      <span className="text-muted-foreground">Institutional Accord:</span>
+                      <span className="font-semibold text-accent">{prog.scholarship}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-medium">
+                <div className="pt-4 mt-5 border-t border-border flex items-center justify-between">
+                  <span className="text-[11px] text-muted-foreground font-medium">
                     Partner School Allocation
                   </span>
                   <Button
                     to="/book-a-demo"
-                    variant="navy"
+                    variant="accent"
                     size="sm"
                   >
                     Inquire for Cohort
@@ -361,60 +444,53 @@ export default function CourseFinderPage() {
             ))}
           </div>
         ) : (
-          <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 shadow-subtle mb-12 space-y-3">
-            <Compass className="w-10 h-10 text-slate-400 mx-auto" />
-            <h3 className="font-display text-lg font-bold text-slate-900">
+          <div className="p-12 text-center bg-card rounded-3xl border border-border shadow-soft mb-12 space-y-3">
+            <Compass className="w-10 h-10 text-muted-foreground mx-auto animate-float" />
+            <h3 className="font-display text-lg font-bold text-foreground">
               No matching sample programs found
             </h3>
-            <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            <p className="text-xs text-muted-foreground max-w-sm mx-auto">
               Try adjusting your keyword, destination, or study level filters, or request full institutional directory access.
             </p>
-            <Button
+            <button
+              type="button"
               onClick={resetFilters}
-              variant="outlineDark"
-              size="sm"
+              className="text-xs text-primary font-bold hover:underline cursor-pointer"
             >
-              Reset All Filters
-            </Button>
+              Clear All Filters
+            </button>
           </div>
         )}
 
-        {/* Gated Institutional Access Callout */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-primary text-primary-foreground border border-primary/20 shadow-card relative overflow-hidden">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-accent text-xs font-bold uppercase tracking-wider">
-              <Lock className="w-3.5 h-3.5 text-accent" />
-              <span>Full Directory Reserved for Partner Institutions</span>
-            </div>
-
-            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Looking for specific degree thresholds, tuition matrices, or scholarship quotas?
-            </h3>
-
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-              Complete course indices, curriculum equivalency tables, and direct university submission pathways are accessible exclusively through authorized partner school consoles.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-              <Button
-                to="/book-a-demo"
-                variant="accent"
-                size="md"
-                icon={ArrowRight}
-                className="w-full sm:w-auto font-bold"
-              >
-                Request Institutional Briefing
-              </Button>
-              <a
-                href={siteConfig.portalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/25 transition-colors w-full sm:w-auto"
-              >
-                <span>Partner Portal ({siteConfig.portalText})</span>
-                <ArrowUpRight className="w-4 h-4 text-accent" />
-              </a>
-            </div>
+        {/* Institutional Gate Notice Box */}
+        <div className="rounded-3xl bg-card border border-border p-8 text-center shadow-card relative overflow-hidden">
+          <div className="w-12 h-12 rounded-full bg-primary-soft text-primary border border-primary/20 flex items-center justify-center mx-auto mb-3 shadow-xs animate-float">
+            <Lock className="w-6 h-6" />
+          </div>
+          <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2 tracking-tight">
+            Full 96,083 Program Directory Reserved for Partner Schools
+          </h3>
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed font-normal">
+            Direct university application submission lines, tuition fee frameworks, merit scholarship quotas, and visa compliance checklists are accessible exclusively through authorized institutional consoles.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Button
+              to="/book-a-demo"
+              variant="accent"
+              size="md"
+              icon={ArrowRight}
+            >
+              Request School Console Access
+            </Button>
+            <a
+              href={siteConfig.portalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-foreground bg-secondary hover:bg-secondary/80 border border-border transition-all"
+            >
+              <span>Partner Portal Login ({siteConfig.portalText})</span>
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
         </div>
       </Section>

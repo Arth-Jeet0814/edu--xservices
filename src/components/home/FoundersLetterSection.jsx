@@ -43,8 +43,9 @@ export default function FoundersLetterSection() {
           <p>{foundersLetter.paragraphs[3]}</p>
 
           {/* Modern Executive Pull Quote */}
-          <div className="my-8 p-6 sm:p-7 bg-slate-50 border-l-4 border-gold-500 rounded-r-xl border border-slate-200/60 shadow-subtle">
-            <p className="text-xs font-bold uppercase tracking-widest text-gold-700 mb-1.5">
+          <div className="my-8 p-6 sm:p-7 bg-slate-50/90 border-l-4 border-gold-500 rounded-r-2xl border border-slate-200/60 shadow-soft card-hover-lift hover:border-gold-500/70 transition-all">
+            <p className="text-xs font-bold uppercase tracking-widest text-gold-700 mb-1.5 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
               Institutional Axiom
             </p>
             <blockquote className="font-display text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
@@ -56,7 +57,7 @@ export default function FoundersLetterSection() {
 
           <p>{foundersLetter.paragraphs[5]}</p>
 
-          <div className="p-4 rounded-lg bg-slate-50 border border-slate-200/80 font-display font-semibold text-slate-900 text-base">
+          <div className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 font-display font-semibold text-slate-900 text-base card-hover-lift">
             "{foundersLetter.paragraphs[6]}"
           </div>
 
@@ -80,8 +81,12 @@ export default function FoundersLetterSection() {
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
-            <ShieldCheck className="w-3.5 h-3.5 text-gold-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold hover:bg-slate-200/70 transition-colors">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
+            </span>
+            <ShieldCheck className="w-4 h-4 text-gold-600" />
             <span>Verified Executive Letter</span>
           </div>
         </div>

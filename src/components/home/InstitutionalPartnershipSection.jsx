@@ -138,14 +138,15 @@ export default function InstitutionalPartnershipSection() {
           </div>
 
           {isSubmitted ? (
-            <div className="py-12 px-6 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-8 h-8" />
+            <div className="py-12 px-6 text-center space-y-4 animate-in fade-in zoom-in-95 duration-300">
+              <div className="relative w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/30 flex items-center justify-center mx-auto shadow-soft animate-float">
+                <span className="animate-radar absolute inset-0 rounded-full border border-emerald-500/50"></span>
+                <CheckCircle2 className="w-8 h-8 relative z-10" />
               </div>
-              <h4 className="font-display text-2xl font-bold text-white tracking-tight">
+              <h4 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
                 Application Received for Institutional Review
               </h4>
-              <p className="text-slate-300 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+              <p className="text-muted-foreground max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
                 Thank you for submitting your institution's profile. Your submission has been securely logged. Education eXcellence Services admissions and governance leadership will review your parameters within 10 business days.
               </p>
               <div className="pt-4">
@@ -171,7 +172,7 @@ export default function InstitutionalPartnershipSection() {
                       rationale: '',
                     });
                   }}
-                  variant="outlineLight"
+                  variant="outline"
                   size="sm"
                 >
                   Submit Another Institutional Inquiry

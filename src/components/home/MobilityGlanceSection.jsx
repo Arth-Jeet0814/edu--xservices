@@ -9,39 +9,44 @@ export default function MobilityGlanceSection() {
   return (
     <Section
       id="mobility-at-a-glance"
-      background="dark"
+      background="light"
       align="center"
       eyebrow={mobilityGlance.eyebrow}
       title={mobilityGlance.title}
+      subtitle={mobilityGlance.subtitle}
+      className="py-12 sm:py-16 !border-t-0 !border-b-0"
     >
-      {/* 3 Static Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-14">
-        {mobilityGlance.stats.map((stat, idx) => (
-          <Card
-            key={idx}
-            variant="darkSubtle"
-            hoverEffect={true}
-            className="p-8 border border-navy-700/80 text-center"
-          >
-            <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gold-400 mb-2 tracking-tight">
-              {stat.value}
-            </div>
-            <h3 className="font-display text-lg font-bold text-white mb-1 tracking-tight">
-              {stat.label}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
-              {stat.desc}
-            </p>
-          </Card>
-        ))}
+      {/* 3 Stat Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {mobilityGlance.stats.map((stat, idx) => {
+          const displayValue = stat.value ? stat.value.replace(/\[|\]/g, '') : '';
+          return (
+            <Card
+              key={idx}
+              variant="light"
+              hoverEffect={true}
+              className="p-8 text-center border-border shadow-soft"
+            >
+              <div className="font-display text-4xl sm:text-5xl font-extrabold text-primary mb-2 tracking-tight">
+                {displayValue}
+              </div>
+              <h3 className="font-display text-lg font-bold text-foreground mb-1">
+                {stat.label}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {stat.desc}
+              </p>
+            </Card>
+          );
+        })}
       </div>
 
       {/* Institutional Mandate Statement */}
-      <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-2xl bg-navy-950 border border-gold-500/40 text-center shadow-xl">
-        <span className="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">
+      <div className="max-w-3xl mx-auto p-6 sm:p-8 rounded-2xl bg-card border border-border text-center shadow-soft">
+        <span className="text-xs font-bold uppercase tracking-widest text-primary block mb-2">
           {mobilityGlance.mandate.label}
         </span>
-        <p className="font-display text-xl sm:text-2xl font-bold text-white leading-relaxed tracking-tight">
+        <p className="font-display text-lg sm:text-xl font-bold text-foreground leading-relaxed">
           "{mobilityGlance.mandate.text}"
         </p>
       </div>

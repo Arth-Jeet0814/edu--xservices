@@ -114,7 +114,7 @@ export default function Navbar() {
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition-all whitespace-nowrap ${
                     isActive
                       ? 'text-primary bg-primary-soft/80 font-bold shadow-xs'
-                      : 'text-muted-foreground hover:bg-secondary hover:text-primary'
+                      : 'text-muted-foreground hover:bg-secondary/60 hover:text-primary nav-link-animated'
                   }`}
                 >
                   {link.name}
@@ -129,12 +129,16 @@ export default function Navbar() {
               href={siteConfig.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-secondary flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+              className="group rounded-full border border-border px-4 py-2 text-sm font-semibold text-primary transition-all hover:bg-secondary hover:border-primary/40 flex items-center gap-2 whitespace-nowrap shadow-xs hover:-translate-y-0.5"
               title="Open Institutional Partner Portal"
             >
-              <Globe className="w-3.5 h-3.5 text-primary shrink-0" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <Globe className="w-3.5 h-3.5 text-primary shrink-0 transition-transform group-hover:rotate-12" />
               <span>Portal Access</span>
-              <ArrowUpRight className="w-3 h-3 text-muted-foreground shrink-0" />
+              <ArrowUpRight className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
             </a>
 
             <Button

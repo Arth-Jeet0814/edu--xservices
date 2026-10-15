@@ -393,9 +393,10 @@ export const homeContent = {
   mobilityGlance: {
     eyebrow: "INSTITUTIONAL REACH",
     title: "MOBILITY AT A GLANCE",
+    subtitle: "Scale and depth powering international mobility across leading African partner schools.",
     stats: [
       { value: "96,083+", label: "Academic Programmes", desc: "Curated undergraduate and graduate pathways" },
-      { value: "[140+]", label: "University Cities", desc: "Across North America, Europe, Asia & Africa" },
+      { value: "140+", label: "University Cities", desc: "Across North America, Europe, Asia & Africa" },
       { value: "25", label: "Destination Countries", desc: "Structured international visa & admissions pipelines" },
     ],
     mandate: {

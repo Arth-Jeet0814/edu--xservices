@@ -22,10 +22,10 @@ export default function DestinationsGridSection() {
         {destinationsGrid.countries.map((country) => (
           <div
             key={country.name}
-            className="group bg-white rounded-xl p-4 border border-slate-200 shadow-subtle hover:border-gold-500/60 card-hover-lift flex flex-col items-center justify-center text-center transition-all duration-200"
+            className="group bg-white rounded-2xl p-4 border border-slate-200/90 shadow-soft hover:border-gold-500/80 hover:shadow-card hover:-translate-y-1.5 flex flex-col items-center justify-center text-center transition-all duration-300 cursor-pointer"
           >
             {/* Flag Image from flagcdn.com */}
-            <div className="w-12 h-8 rounded overflow-hidden shadow-sm border border-slate-200/80 mb-3 bg-slate-100 flex items-center justify-center shrink-0">
+            <div className="w-12 h-8 rounded-md overflow-hidden shadow-xs border border-slate-200/80 mb-3 bg-slate-100 flex items-center justify-center shrink-0">
               <img
                 src={`https://flagcdn.com/w80/${country.code}.png`}
                 srcSet={`https://flagcdn.com/w160/${country.code}.png 2x`}
@@ -33,14 +33,14 @@ export default function DestinationsGridSection() {
                 loading="lazy"
                 width="48"
                 height="32"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115"
               />
             </div>
 
-            <h4 className="font-display font-bold text-sm text-slate-900 group-hover:text-gold-700 transition-colors">
+            <h4 className="font-display font-bold text-sm text-slate-900 group-hover:text-gold-700 transition-colors duration-200">
               {country.name}
             </h4>
-            <span className="text-[11px] text-slate-500 mt-0.5">
+            <span className="text-[11px] text-slate-500 mt-0.5 group-hover:text-slate-700 transition-colors">
               {country.region}
             </span>
           </div>

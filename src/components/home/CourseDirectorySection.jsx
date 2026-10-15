@@ -128,8 +128,8 @@ export default function CourseDirectorySection() {
 
           {/* Submission Gate Modal / Message Box */}
           {hasSearched && (
-            <div className="mt-8 p-6 rounded-xl bg-navy-900 border border-gold-500/40 text-center animate-in fade-in duration-200">
-              <div className="w-12 h-12 rounded-full bg-gold-500/10 text-gold-400 border border-gold-500/30 flex items-center justify-center mx-auto mb-3">
+            <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-navy-950 border border-gold-500/50 text-center animate-in fade-in zoom-in-95 duration-300 animate-gold-glow">
+              <div className="w-14 h-14 rounded-full bg-gold-500/10 text-gold-400 border border-gold-500/30 flex items-center justify-center mx-auto mb-3 shadow-md animate-float">
                 <Lock className="w-6 h-6" />
               </div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
@@ -151,17 +151,17 @@ export default function CourseDirectorySection() {
                   href={siteConfig.portalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-navy-800 hover:bg-navy-700 border border-gold-500/30 transition-colors"
+                  className="group inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-navy-900 hover:bg-navy-800 border border-gold-500/40 hover:border-gold-500 transition-all shadow-sm"
                 >
                   <span>Partner Portal Login ({siteConfig.portalText})</span>
-                  <ArrowUpRight className="w-4 h-4 text-gold-400" />
+                  <ArrowUpRight className="w-4 h-4 text-gold-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="inline-flex items-center text-xs text-slate-400 hover:text-white px-3 py-2 transition-colors"
+                  className="group inline-flex items-center text-xs text-slate-400 hover:text-white px-3 py-2 transition-colors cursor-pointer"
                 >
-                  <RefreshCw className="w-3.5 h-3.5 mr-1" />
+                  <RefreshCw className="w-3.5 h-3.5 mr-1 group-hover:rotate-180 transition-transform duration-500" />
                   Reset
                 </button>
               </div>

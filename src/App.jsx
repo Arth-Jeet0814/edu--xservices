@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import RouteLoadingBar from './components/common/RouteLoadingBar';
 import PageTransition from './components/common/PageTransition';
+import BackToTop from './components/common/BackToTop';
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
@@ -17,7 +18,7 @@ import TermsConditionsPage from './pages/TermsConditionsPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-gold-500 selection:text-navy-950">
+    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-accent selection:text-accent-foreground">
       <ScrollToTop />
       {/* Top Route Progress Bar for Smooth Page Transitions */}
       <RouteLoadingBar />
@@ -45,6 +46,9 @@ export default function App() {
 
       {/* Institutional Footer */}
       <Footer />
+
+      {/* Floating Animated Back-to-Top Button */}
+      <BackToTop />
     </div>
   );
 }

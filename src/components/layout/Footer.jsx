@@ -5,13 +5,13 @@ import { siteConfig } from '../../data/content';
 
 export default function Footer() {
   return (
-    <footer className="mt-8 border-t border-border bg-primary text-primary-foreground pt-16 pb-12">
+    <footer className="mt-0 border-t border-navy-900 bg-navy-950 text-white pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-14 border-b border-primary-foreground/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-14 border-b border-navy-800/80">
           {/* Brand Info (2 columns) */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <div className="inline-flex items-center gap-2.5 rounded-2xl bg-white p-2.5 shadow-md">
+            <Link to="/" className="inline-flex items-center gap-3 group">
+              <div className="inline-flex items-center gap-2.5 rounded-2xl bg-white p-2.5 shadow-md border border-white/20 transition-transform group-hover:scale-105">
                 <img
                   src="/favicon.png"
                   alt="Education eXcellence Services Emblem"
