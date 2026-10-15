@@ -8,6 +8,7 @@ import PageTransition from './components/common/PageTransition';
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
+import CourseFinderPage from './pages/CourseFinderPage';
 import DestinationsPage from './pages/DestinationsPage';
 import UniversityPartnershipsPage from './pages/UniversityPartnershipsPage';
 import BookDemoPage from './pages/BookDemoPage';
@@ -30,6 +31,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/course-finder" element={<CourseFinderPage />} />
             <Route path="/destinations" element={<DestinationsPage />} />
             <Route path="/university-partnerships" element={<UniversityPartnershipsPage />} />
             <Route path="/book-a-demo" element={<BookDemoPage />} />

@@ -73,6 +73,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/course-finder" className="text-slate-400 hover:text-gold-400 transition-colors">
+                  Course Finder
+                </Link>
+              </li>
+              <li>
                 <Link to="/destinations" className="text-slate-400 hover:text-gold-400 transition-colors">
                   Destinations
                 </Link>

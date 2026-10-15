@@ -23,6 +23,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { name: "About Us", path: "/about-us" },
+  { name: "Course Finder", path: "/course-finder" },
   { name: "Destinations", path: "/destinations" },
   { name: "University Partnerships", path: "/university-partnerships" },
 ];
