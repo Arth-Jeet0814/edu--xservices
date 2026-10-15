@@ -11,16 +11,18 @@ export default function Footer() {
           {/* Brand Info (2 columns) */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-navy-900 border border-gold-500/40 flex items-center justify-center text-gold-500">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 17L12 22L22 17" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 12L12 17L22 12" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <div className="w-10 h-10 rounded-lg bg-white/10 p-1 border border-gold-500/40 flex items-center justify-center shadow-md shrink-0">
+                <img
+                  src="/favicon.png"
+                  alt="Education eXcellence Services Emblem"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="font-display text-xl font-bold tracking-tight text-white">
-                Education <span className="text-gold-400">eXcellence</span> Services
-              </span>
+              <img
+                src="/logo-white.png"
+                alt="Education eXcellence Services"
+                className="h-8 sm:h-9 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
               {siteConfig.tagline}

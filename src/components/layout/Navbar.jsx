@@ -84,20 +84,30 @@ export default function Navbar() {
             className="flex items-center gap-2.5 xl:gap-3 group focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg p-1 shrink-0"
             aria-label={`${siteConfig.brandName} Home`}
           >
-            <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-lg bg-gradient-to-br from-navy-900 to-navy-950 border border-gold-500/40 flex items-center justify-center text-gold-400 shadow-md group-hover:border-gold-400 transition-colors shrink-0">
-              <svg className="w-5 h-5 xl:w-6 xl:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 17L12 22L22 17" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 12L12 17L22 12" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            {/* Official Favicon / Emblem Mark */}
+            <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-lg bg-white/10 p-1 border border-gold-500/40 flex items-center justify-center shadow-md group-hover:border-gold-400 transition-colors shrink-0">
+              <img
+                src="/favicon.png"
+                alt="Education eXcellence Services Emblem"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <div className="flex flex-col">
-              <span className="font-display text-base xl:text-lg font-bold tracking-tight text-white leading-tight whitespace-nowrap">
-                Education <span className="text-gold-400">eXcellence</span> Services
-              </span>
-              <span className="text-[9px] xl:text-[10px] tracking-widest uppercase font-semibold text-slate-400 whitespace-nowrap hidden sm:block">
-                Institutional Infrastructure · Africa
-              </span>
+
+            {/* Official Wordmark Logo */}
+            <div className="flex items-center shrink-0">
+              <img
+                src="/logo-white.png"
+                alt="Education eXcellence Services"
+                className="h-7 sm:h-8 xl:h-8.5 w-auto object-contain shrink-0 hidden sm:block"
+              />
+              <div className="sm:hidden flex flex-col">
+                <span className="font-display text-base font-bold tracking-tight text-white leading-tight whitespace-nowrap">
+                  Education <span className="text-gold-400">eXcellence</span>
+                </span>
+                <span className="text-[9px] tracking-wider uppercase font-semibold text-slate-400 whitespace-nowrap">
+                  Services
+                </span>
+              </div>
             </div>
           </Link>
 
