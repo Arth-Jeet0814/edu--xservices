@@ -91,7 +91,7 @@ export default function InstitutionalPartnershipSection() {
   return (
     <Section
       id="institutional-partnership"
-      background="dark"
+      background="light"
       align="center"
       eyebrow={partnership.eyebrow}
       title={partnership.title}
@@ -102,15 +102,15 @@ export default function InstitutionalPartnershipSection() {
         {partnership.selectionProcess.map((step) => (
           <div
             key={step.step}
-            className="p-6 rounded-xl bg-navy-950/80 border border-navy-800 hover:border-gold-500/40 transition-colors relative"
+            className="p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-card hover:-translate-y-1 transition-all relative"
           >
-            <div className="font-display text-3xl font-bold text-gold-400 mb-3">
+            <div className="font-display text-3xl font-extrabold text-primary mb-3">
               {step.step}
             </div>
-            <h3 className="font-display text-lg font-bold text-white mb-2 tracking-tight">
+            <h3 className="font-display text-lg font-bold text-foreground mb-2 tracking-tight">
               {step.title}
             </h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {step.description}
             </p>
           </div>
@@ -119,20 +119,20 @@ export default function InstitutionalPartnershipSection() {
 
       {/* Main Pre-Screening Form Card */}
       <div id="partnerFormMain" className="max-w-5xl mx-auto scroll-mt-28">
-        <div className="bg-navy-950 border border-navy-700/80 rounded-2xl p-6 sm:p-10 lg:p-12 shadow-2xl text-left">
-          <div className="border-b border-navy-800 pb-6 mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-gold-400">
+        <div className="bg-card border border-border rounded-3xl p-6 sm:p-10 lg:p-12 shadow-card text-left">
+          <div className="border-b border-border pb-6 mb-8">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
               Application Protocol
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mt-1 mb-3 tracking-tight">
+            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-foreground mt-1 mb-3 tracking-tight">
               {partnership.formNotice.title}
             </h3>
-            <div className="p-4 rounded-xl bg-navy-900 border border-navy-800 text-xs text-slate-300 leading-relaxed flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <span className="max-w-xl">{partnership.formNotice.disclaimer}</span>
-              <div className="shrink-0 text-slate-400 text-[11px] space-y-1 md:text-right border-t md:border-t-0 md:border-l border-navy-700/80 pt-3 md:pt-0 md:pl-5">
-                <div>Desk: <a href={`mailto:${siteConfig.email}`} className="text-gold-400 hover:underline">{siteConfig.email}</a></div>
-                <div>Office: <a href={`tel:${siteConfig.phone}`} className="text-white hover:underline">{siteConfig.phone}</a></div>
-                <div className="text-slate-400">Hours: {siteConfig.officeHours}</div>
+            <div className="p-4 rounded-2xl bg-primary-soft/80 border border-primary/20 text-xs text-foreground leading-relaxed flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <span className="max-w-xl text-muted-foreground">{partnership.formNotice.disclaimer}</span>
+              <div className="shrink-0 text-muted-foreground text-[11px] space-y-1 md:text-right border-t md:border-t-0 md:border-l border-border pt-3 md:pt-0 md:pl-5">
+                <div>Desk: <a href={`mailto:${siteConfig.email}`} className="text-primary font-semibold hover:underline">{siteConfig.email}</a></div>
+                <div>Office: <a href={`tel:${siteConfig.phone}`} className="text-foreground font-semibold hover:underline">{siteConfig.phone}</a></div>
+                <div className="text-muted-foreground">Hours: {siteConfig.officeHours}</div>
               </div>
             </div>
           </div>
@@ -184,8 +184,8 @@ export default function InstitutionalPartnershipSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* 1. Institution Name */}
                 <div>
-                  <label htmlFor="institutionName" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Institution Name <span className="text-gold-400">*</span>
+                  <label htmlFor="institutionName" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Institution Name <span className="text-crimson">*</span>
                   </label>
                   <input
                     type="text"
@@ -194,8 +194,8 @@ export default function InstitutionalPartnershipSection() {
                     value={formData.institutionName}
                     onChange={handleChange}
                     placeholder="e.g. Collège International Sainte-Marie"
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.institutionName ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.institutionName ? 'border-red-500' : 'border-input'
                     }`}
                   />
                   {errors.institutionName && <p className="text-red-400 text-xs mt-1">{errors.institutionName}</p>}
@@ -203,16 +203,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 2. Institution Type */}
                 <div>
-                  <label htmlFor="institutionType" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Institution Type <span className="text-gold-400">*</span>
+                  <label htmlFor="institutionType" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Institution Type <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="institutionType"
                     name="institutionType"
                     value={formData.institutionType}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.institutionType ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.institutionType ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Institution Type</option>
@@ -225,16 +225,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 3. Ownership Type */}
                 <div>
-                  <label htmlFor="ownershipType" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Ownership Type <span className="text-gold-400">*</span>
+                  <label htmlFor="ownershipType" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Ownership Type <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="ownershipType"
                     name="ownershipType"
                     value={formData.ownershipType}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.ownershipType ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.ownershipType ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Ownership Type</option>
@@ -247,16 +247,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 4. Curriculum Type */}
                 <div>
-                  <label htmlFor="curriculumType" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Curriculum Type <span className="text-gold-400">*</span>
+                  <label htmlFor="curriculumType" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Curriculum Type <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="curriculumType"
                     name="curriculumType"
                     value={formData.curriculumType}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.curriculumType ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.curriculumType ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Curriculum Type</option>
@@ -269,16 +269,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 5. Institutional Positioning */}
                 <div>
-                  <label htmlFor="institutionalPositioning" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Institutional Positioning <span className="text-gold-400">*</span>
+                  <label htmlFor="institutionalPositioning" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Institutional Positioning <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="institutionalPositioning"
                     name="institutionalPositioning"
                     value={formData.institutionalPositioning}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.institutionalPositioning ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.institutionalPositioning ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Positioning Tier</option>
@@ -291,16 +291,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 6. Language of Instruction */}
                 <div>
-                  <label htmlFor="languageOfInstruction" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Main Language of Instruction <span className="text-gold-400">*</span>
+                  <label htmlFor="languageOfInstruction" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Main Language of Instruction <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="languageOfInstruction"
                     name="languageOfInstruction"
                     value={formData.languageOfInstruction}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.languageOfInstruction ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.languageOfInstruction ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Language</option>
@@ -313,16 +313,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 7. Country */}
                 <div>
-                  <label htmlFor="country" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Country <span className="text-gold-400">*</span>
+                  <label htmlFor="country" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Country <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="country"
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.country ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.country ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select African Country / Other</option>
@@ -335,16 +335,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 8. Student Population Range */}
                 <div>
-                  <label htmlFor="studentPopulation" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Student Population Range <span className="text-gold-400">*</span>
+                  <label htmlFor="studentPopulation" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Student Population Range <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="studentPopulation"
                     name="studentPopulation"
                     value={formData.studentPopulation}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.studentPopulation ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.studentPopulation ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Size Bracket</option>
@@ -357,16 +357,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 9. International Orientation Level */}
                 <div>
-                  <label htmlFor="internationalOrientation" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    International Orientation Level <span className="text-gold-400">*</span>
+                  <label htmlFor="internationalOrientation" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    International Orientation Level <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="internationalOrientation"
                     name="internationalOrientation"
                     value={formData.internationalOrientation}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.internationalOrientation ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.internationalOrientation ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Current Level</option>
@@ -379,16 +379,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 10. Parent Market Type */}
                 <div>
-                  <label htmlFor="parentMarketType" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Parent Market Type <span className="text-gold-400">*</span>
+                  <label htmlFor="parentMarketType" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Parent Market Type <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="parentMarketType"
                     name="parentMarketType"
                     value={formData.parentMarketType}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.parentMarketType ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.parentMarketType ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Demographics</option>
@@ -401,8 +401,8 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 11. Contact Full Name */}
                 <div>
-                  <label htmlFor="contactName" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Contact Full Name <span className="text-gold-400">*</span>
+                  <label htmlFor="contactName" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Contact Full Name <span className="text-crimson">*</span>
                   </label>
                   <input
                     type="text"
@@ -411,8 +411,8 @@ export default function InstitutionalPartnershipSection() {
                     value={formData.contactName}
                     onChange={handleChange}
                     placeholder="e.g. Dr. Jean-Baptiste Koffi"
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.contactName ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.contactName ? 'border-red-500' : 'border-input'
                     }`}
                   />
                   {errors.contactName && <p className="text-red-400 text-xs mt-1">{errors.contactName}</p>}
@@ -420,16 +420,16 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 12. Decision-Maker Type */}
                 <div>
-                  <label htmlFor="decisionMakerType" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Decision-Maker Type <span className="text-gold-400">*</span>
+                  <label htmlFor="decisionMakerType" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Decision-Maker Type <span className="text-crimson">*</span>
                   </label>
                   <select
                     id="decisionMakerType"
                     name="decisionMakerType"
                     value={formData.decisionMakerType}
                     onChange={handleChange}
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.decisionMakerType ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.decisionMakerType ? 'border-red-500' : 'border-input'
                     }`}
                   >
                     <option value="">Select Role</option>
@@ -442,8 +442,8 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 13. Contact Title */}
                 <div>
-                  <label htmlFor="contactTitle" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Contact Title <span className="text-gold-400">*</span>
+                  <label htmlFor="contactTitle" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Contact Title <span className="text-crimson">*</span>
                   </label>
                   <input
                     type="text"
@@ -452,8 +452,8 @@ export default function InstitutionalPartnershipSection() {
                     value={formData.contactTitle}
                     onChange={handleChange}
                     placeholder="e.g. Proviseur / Head of School"
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.contactTitle ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.contactTitle ? 'border-red-500' : 'border-input'
                     }`}
                   />
                   {errors.contactTitle && <p className="text-red-400 text-xs mt-1">{errors.contactTitle}</p>}
@@ -461,8 +461,8 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 14. Email */}
                 <div>
-                  <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Official Institutional Email <span className="text-gold-400">*</span>
+                  <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Official Institutional Email <span className="text-crimson">*</span>
                   </label>
                   <input
                     type="email"
@@ -471,8 +471,8 @@ export default function InstitutionalPartnershipSection() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="leadership@institution.edu"
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.email ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.email ? 'border-red-500' : 'border-input'
                     }`}
                   />
                   {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
@@ -480,8 +480,8 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 15. Phone / WhatsApp */}
                 <div className="md:col-span-2">
-                  <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Phone / WhatsApp (with country code) <span className="text-gold-400">*</span>
+                  <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Phone / WhatsApp (with country code) <span className="text-crimson">*</span>
                   </label>
                   <input
                     type="tel"
@@ -490,8 +490,8 @@ export default function InstitutionalPartnershipSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+221 XX XXX XX XX"
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.phone ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.phone ? 'border-red-500' : 'border-input'
                     }`}
                   />
                   {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
@@ -499,8 +499,8 @@ export default function InstitutionalPartnershipSection() {
 
                 {/* 16. Why your institution is seeking this partnership */}
                 <div className="md:col-span-2">
-                  <label htmlFor="rationale" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Why your institution is seeking this partnership <span className="text-gold-400">*</span>
+                  <label htmlFor="rationale" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1.5">
+                    Why your institution is seeking this partnership <span className="text-crimson">*</span>
                   </label>
                   <textarea
                     id="rationale"
@@ -509,8 +509,8 @@ export default function InstitutionalPartnershipSection() {
                     value={formData.rationale}
                     onChange={handleChange}
                     placeholder="Briefly state your strategic objectives, upcoming graduating cohorts, and international pathway goals..."
-                    className={`w-full bg-navy-900 border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 ${
-                      errors.rationale ? 'border-red-500' : 'border-navy-700'
+                    className={`w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40 ${
+                      errors.rationale ? 'border-red-500' : 'border-input'
                     }`}
                   />
                   {errors.rationale && <p className="text-red-400 text-xs mt-1">{errors.rationale}</p>}
@@ -518,10 +518,10 @@ export default function InstitutionalPartnershipSection() {
               </div>
 
               {/* Submit Button & Footnote */}
-              <div className="pt-4 border-t border-navy-800 space-y-4">
+              <div className="pt-4 border-t border-border space-y-4">
                 <Button
                   type="submit"
-                  variant="gold"
+                  variant="accent"
                   size="lg"
                   disabled={isSubmitting}
                   icon={Send}
@@ -529,7 +529,7 @@ export default function InstitutionalPartnershipSection() {
                 >
                   {isSubmitting ? 'Verifying Submission...' : 'Submit Pre-Screening Application'}
                 </Button>
-                <p className="text-xs text-slate-400 leading-relaxed italic">
+                <p className="text-xs text-muted-foreground leading-relaxed italic">
                   {partnership.formNotice.footnote}
                 </p>
               </div>

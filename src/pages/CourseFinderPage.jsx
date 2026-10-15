@@ -168,17 +168,17 @@ export default function CourseFinderPage() {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-0">
       {/* Header */}
-      <section className="bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-white py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-navy-800 text-center relative">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <span className="animate-hero-1 inline-block text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+      <section className="gradient-hero text-foreground py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-border text-center relative">
+        <div className="max-w-4xl mx-auto space-y-5">
+          <span className="animate-hero-1 inline-block text-xs font-bold uppercase tracking-wider text-primary bg-primary-soft/90 px-4 py-2 rounded-full border border-primary/20 shadow-soft">
             Global Search Engine & Academic Directory
           </span>
-          <h1 className="animate-hero-2 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+          <h1 className="animate-hero-2 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
             Course Finder
           </h1>
-          <p className="animate-hero-3 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="animate-hero-3 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-normal">
             Index of 96,083 programs across accredited institutions in 24 destination countries, directly matched to African secondary school curricula.
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function CourseFinderPage() {
         id="finder-console"
         background="light"
         align="left"
-        className="py-12 sm:py-16 border-b border-slate-200"
+        className="py-12 sm:py-16 border-b border-border"
       >
         {/* Interactive Filter Control Panel */}
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-card mb-10">
@@ -380,10 +380,10 @@ export default function CourseFinderPage() {
         )}
 
         {/* Gated Institutional Access Callout */}
-        <div className="p-8 sm:p-10 rounded-2xl bg-navy-950 text-white border border-navy-800 shadow-xl relative overflow-hidden">
+        <div className="p-8 sm:p-10 rounded-3xl bg-primary text-primary-foreground border border-primary/20 shadow-card relative overflow-hidden">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-semibold uppercase tracking-wider">
-              <Lock className="w-3.5 h-3.5 text-gold-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-accent text-xs font-bold uppercase tracking-wider">
+              <Lock className="w-3.5 h-3.5 text-accent" />
               <span>Full Directory Reserved for Partner Institutions</span>
             </div>
 
@@ -391,17 +391,17 @@ export default function CourseFinderPage() {
               Looking for specific degree thresholds, tuition matrices, or scholarship quotas?
             </h3>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
               Complete course indices, curriculum equivalency tables, and direct university submission pathways are accessible exclusively through authorized partner school consoles.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
               <Button
                 to="/book-a-demo"
-                variant="gold"
+                variant="accent"
                 size="md"
                 icon={ArrowRight}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto font-bold"
               >
                 Request Institutional Briefing
               </Button>
@@ -409,10 +409,10 @@ export default function CourseFinderPage() {
                 href={siteConfig.portalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-navy-800 hover:bg-navy-700 border border-gold-500/30 transition-colors w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/25 transition-colors w-full sm:w-auto"
               >
                 <span>Partner Portal ({siteConfig.portalText})</span>
-                <ArrowUpRight className="w-4 h-4 text-gold-400" />
+                <ArrowUpRight className="w-4 h-4 text-accent" />
               </a>
             </div>
           </div>

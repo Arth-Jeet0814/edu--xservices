@@ -7,27 +7,61 @@ export default {
   theme: {
     extend: {
       colors: {
+        border: 'var(--border)',
+        input: 'var(--input)',
+        ring: 'var(--ring)',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: {
+          DEFAULT: 'var(--primary)',
+          foreground: 'var(--primary-foreground)',
+          soft: 'var(--primary-soft)',
+        },
+        secondary: {
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
+        },
+        destructive: {
+          DEFAULT: 'var(--destructive)',
+          foreground: 'var(--destructive-foreground)',
+        },
+        muted: {
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
+        },
+        accent: {
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--accent-foreground)',
+        },
+        crimson: {
+          DEFAULT: 'var(--crimson)',
+          foreground: 'var(--crimson-foreground)',
+        },
+        card: {
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
+        },
         navy: {
-          950: '#07152B', // Deep Oxford Navy
-          900: '#0B2044', // Royal Oxford Blue
-          850: '#102E62', // Stately Royal Blue
-          800: '#173D82', // Commanding Sapphire
-          700: '#1D4ED8', // Vibrant Institutional Blue
-          600: '#2563EB', // Cobalt Blue
+          950: '#0B1E40', // Target footer / dark elements
+          900: '#102A56',
+          850: '#14346B',
+          800: '#183F81', // --primary
+          700: '#1E4E9E',
+          600: '#2563EB',
           500: '#3B82F6',
           400: '#60A5FA',
           200: '#BFDBFE',
-          100: '#DBEAFE', // Soft Ice Blue
-          50: '#EFF6FF',  // Crisp Oxford Ice
+          100: '#E8EEF8', // --primary-soft
+          50: '#F4F7FC',
         },
         gold: {
           50: '#FFFBEB',
           100: '#FEF3C7',
           200: '#FDE68A',
           300: '#FCD34D',
-          400: '#F59E0B', // Warm Cambridge Amber
-          500: '#D97706', // Refined Royal Institutional Gold
-          600: '#B45309',
+          400: '#F59E0B', // --accent
+          500: '#E68A00',
+          600: '#C77300',
           700: '#92400E',
           800: '#78350F',
           900: '#451A03',
@@ -36,18 +70,21 @@ export default {
         surface: '#FFFFFF',
       },
       fontFamily: {
-        sans: ['"Inter"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
-        serif: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
+        sans: ['"Manrope"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', '"Manrope"', 'system-ui', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', '"Manrope"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'subtle': '0 1px 3px 0 rgba(7, 21, 43, 0.05), 0 1px 2px -1px rgba(7, 21, 43, 0.03)',
-        'card': '0 8px 24px -4px rgba(7, 21, 43, 0.07), 0 4px 8px -4px rgba(7, 21, 43, 0.03)',
-        'card-hover': '0 16px 32px -8px rgba(7, 21, 43, 0.12), 0 8px 16px -6px rgba(7, 21, 43, 0.04)',
-        'gold-glow': '0 0 20px rgba(217, 119, 6, 0.25)',
+        'soft': 'var(--shadow-soft)',
+        'card': 'var(--shadow-card)',
+        'lift': 'var(--shadow-lift)',
+        'card-hover': '0 18px 36px -12px oklch(34% 0.11 264 / 0.22)',
       },
       borderRadius: {
-        'card': '12px',
+        'xl': 'calc(var(--radius) - 2px)',
+        '2xl': 'var(--radius)',
+        '3xl': 'calc(var(--radius) + 6px)',
+        'card': 'var(--radius)',
       }
     },
   },

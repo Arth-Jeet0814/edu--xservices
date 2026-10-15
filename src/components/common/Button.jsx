@@ -15,22 +15,24 @@ export default function Button({
   iconPosition = 'right',
   ...props
 }) {
-  const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed select-none";
+  const baseStyles = "inline-flex items-center justify-center font-bold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed select-none";
 
   const sizeStyles = {
-    sm: "px-3.5 py-1.5 text-xs font-semibold tracking-wide",
-    md: "px-5 py-2.5 text-sm font-semibold tracking-wide",
-    lg: "px-7 py-3.5 text-base font-semibold tracking-wide shadow-md",
+    sm: "px-4 py-1.5 text-xs font-semibold tracking-wide",
+    md: "px-6 py-2.5 text-sm font-bold tracking-wide shadow-soft hover:-translate-y-0.5",
+    lg: "px-7 py-3.5 text-base font-bold tracking-wide shadow-card hover:-translate-y-0.5",
   };
 
   const variantStyles = {
-    gold: "bg-gold-500 hover:bg-gold-600 text-white shadow-sm hover:shadow-md focus:ring-gold-400 font-bold tracking-wide",
-    navy: "bg-navy-900 hover:bg-navy-850 text-white focus:ring-navy-800 shadow-sm font-semibold border border-navy-800/60",
-    outline: "border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white focus:ring-navy-900 font-semibold",
+    gold: "gradient-accent text-accent-foreground shadow-soft hover:shadow-card focus:ring-accent font-bold",
+    accent: "gradient-accent text-accent-foreground shadow-soft hover:shadow-card focus:ring-accent font-bold",
+    primary: "bg-primary text-primary-foreground hover:opacity-95 shadow-soft hover:shadow-card focus:ring-primary font-bold",
+    navy: "bg-primary text-primary-foreground hover:opacity-95 shadow-soft hover:shadow-card focus:ring-primary font-bold",
+    outline: "border border-border text-primary hover:bg-secondary focus:ring-primary font-semibold",
     outlineLight: "border border-white/40 text-white hover:bg-white/10 hover:border-white focus:ring-white font-medium",
-    outlineDark: "border border-slate-300 text-slate-800 hover:bg-slate-100 hover:text-slate-900 focus:ring-slate-400 font-medium",
-    white: "bg-white text-navy-900 hover:bg-slate-50 border border-slate-200 shadow-sm focus:ring-navy-900 font-semibold",
-    ghost: "text-slate-200 hover:text-white hover:bg-white/5",
+    outlineDark: "border border-border text-foreground hover:bg-secondary focus:ring-primary font-semibold",
+    white: "bg-background text-primary hover:bg-secondary border border-border shadow-soft focus:ring-primary font-bold",
+    ghost: "text-muted-foreground hover:text-primary hover:bg-secondary",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
