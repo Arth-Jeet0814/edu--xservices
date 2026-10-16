@@ -6,8 +6,11 @@
     "frontend"
   ],
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
+    "build": "cd frontend && npm install --include=dev && npm run build",
     "dev": "cd frontend && npm run dev",
     "preview": "cd frontend && npm run preview"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -19,7 +19,7 @@ Copy `.env.example` to `.env` or configure these variables in your hosting provi
 
 ---
 
-## 🌐 Option 1: Deploying to Vercel (Recommended for Frontend)
+## 🌐 Option 1: Deploying to Vercel (Frontend)
 
 The repository includes a pre-configured [vercel.json](file:///d:/2026%20Projects/GWA/vercel.json).
 
@@ -37,7 +37,30 @@ The repository includes a pre-configured [vercel.json](file:///d:/2026%20Project
 
 ---
 
-## 🗄️ Option 2: Full-Stack on cPanel / Apache / Shared Hosting
+## 🚀 Option 2: Deploying to Render (Static Site)
+
+1. On the [Render Dashboard](https://dashboard.render.com/), click **New +** and select **Static Site**.
+2. Connect your GitHub repository: `Arth-Jeet0814/edu--xservices`.
+3. Set the following configuration settings:
+   - **Name**: `edu-xservices` (or your preferred name)
+   - **Branch**: `main`
+   - **Root Directory**: `frontend` *(recommended)*
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+   *(If you leave **Root Directory** blank, set **Build Command** to `npm install && npm run build` and **Publish Directory** to `frontend/dist`)*
+4. **Environment Variables** (Optional):
+   - `NODE_VERSION`: `20.18.0` *(also automatically handled by [.node-version](file:///d:/2026%20Projects/GWA/.node-version))*
+   - `VITE_API_BASE`: `https://api.yourdomain.com` (if connecting to an external PHP backend)
+5. **Redirects / Rewrites** (for SPA Routing):
+   - In Render Settings -> **Redirects/Rewrites**:
+     - **Source**: `/*`
+     - **Destination**: `/index.html`
+     - **Action**: `Rewrite`
+6. Click **Create Static Site**.
+
+---
+
+## 🗄️ Option 3: Full-Stack on cPanel / Apache / Shared Hosting
 
 If you want both the frontend and backend running on the same domain (e.g. `https://www.yourdomain.com`):
 
@@ -63,7 +86,7 @@ If you want both the frontend and backend running on the same domain (e.g. `http
 
 ---
 
-## 🐧 Option 3: VPS / Nginx / Linux Server
+## 🐧 Option 4: VPS / Nginx / Linux Server
 
 If using Nginx, configure your site configuration block:
 
