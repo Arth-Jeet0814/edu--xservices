@@ -31,7 +31,7 @@ export default function BackToTop() {
       <button
         type="button"
         onClick={scrollToTop}
-        className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-floating transition-all duration-300 hover:scale-110 hover:bg-navy-900 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 active:scale-95 animate-in fade-in zoom-in-75 cursor-pointer"
+        className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-[#0369a1] text-white shadow-floating transition-all duration-300 hover:scale-110 hover:bg-[#0ea5e9] focus:outline-none focus:ring-2 focus:ring-[#0369a1] focus:ring-offset-2 active:scale-95 animate-in fade-in zoom-in-75 cursor-pointer"
         aria-label="Back to top of page"
         title="Scroll to top"
       >

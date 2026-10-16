@@ -21,10 +21,10 @@ export default function DestinationsGridSection() {
         {destinationsGrid.countries.map((country) => (
           <div
             key={country.name}
-            className="group bg-white rounded-2xl p-4 border border-slate-200/90 shadow-soft hover:border-gold-500/80 hover:shadow-card hover:-translate-y-1.5 flex flex-col items-center justify-center text-center transition-all duration-300 cursor-pointer"
+            className="group bg-white rounded-2xl p-4 border border-[#cfe6f5] shadow-xs hover:border-[#0ea5e9] hover:shadow-md hover:-translate-y-1.5 flex flex-col items-center justify-center text-center transition-all duration-300 cursor-pointer"
           >
             {/* Flag Image from flagcdn.com */}
-            <div className="w-12 h-8 rounded-md overflow-hidden shadow-xs border border-slate-200/80 mb-3 bg-slate-100 flex items-center justify-center shrink-0">
+            <div className="w-12 h-8 rounded-md overflow-hidden shadow-xs border border-[#cfe6f5] mb-3 bg-[#f0f9ff] flex items-center justify-center shrink-0">
               <img
                 src={`https://flagcdn.com/w80/${country.code}.png`}
                 srcSet={`https://flagcdn.com/w160/${country.code}.png 2x`}
@@ -36,10 +36,10 @@ export default function DestinationsGridSection() {
               />
             </div>
 
-            <h4 className="font-display font-bold text-sm text-slate-900 group-hover:text-gold-700 transition-colors duration-200">
+            <h4 className="font-display font-bold text-sm text-[#082f49] group-hover:text-[#0369a1] transition-colors duration-200">
               {country.name}
             </h4>
-            <span className="text-[11px] text-slate-500 mt-0.5 group-hover:text-slate-700 transition-colors">
+            <span className="text-[11px] text-[#4b6b82] mt-0.5 group-hover:text-[#082f49] transition-colors">
               {country.region}
             </span>
           </div>
@@ -49,7 +49,7 @@ export default function DestinationsGridSection() {
       <div className="text-center pt-2">
         <Button
           to="/destinations"
-          variant="navy"
+          variant="primary"
           size="md"
           icon={ArrowRight}
         >

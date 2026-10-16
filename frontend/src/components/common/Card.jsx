@@ -18,15 +18,15 @@ export default function Card({
   };
 
   const variantStyles = {
-    light: "bg-card/95 backdrop-blur-sm border-border/80 shadow-soft text-foreground ring-1 ring-black/[0.02]",
-    cream: "bg-card/80 backdrop-blur-xs border-border/80 shadow-soft text-foreground",
-    dark: "gradient-primary text-primary-foreground border-primary/20 shadow-card",
-    darkSubtle: "bg-primary/95 text-primary-foreground border-primary/20",
-    navyMuted: "bg-primary text-primary-foreground border-primary/20 shadow-soft",
-    goldBorder: "bg-card/95 backdrop-blur-sm border-2 border-accent/60 shadow-soft text-foreground",
+    light: "bg-white border border-[#cfe6f5] shadow-soft text-[#082f49]",
+    cream: "bg-[#f0f9ff] border border-[#cfe6f5] shadow-soft text-[#082f49]",
+    dark: "bg-[#e0f2fe] text-[#082f49] border border-[#cfe6f5] shadow-soft",
+    darkSubtle: "bg-[#e0f2fe] text-[#082f49] border border-[#cfe6f5]",
+    navyMuted: "bg-[#e0f2fe] text-[#082f49] border border-[#cfe6f5] shadow-soft",
+    goldBorder: "bg-white border-2 border-[#0ea5e9] shadow-soft text-[#082f49]",
   };
 
-  const hoverClass = hoverEffect ? "hover:shadow-card hover:-translate-y-1 hover:border-primary/35" : "";
+  const hoverClass = hoverEffect ? "hover:shadow-card hover:-translate-y-1 hover:border-[#0369a1]" : "";
 
   return (
     <div

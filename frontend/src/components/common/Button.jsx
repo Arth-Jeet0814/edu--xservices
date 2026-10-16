@@ -24,15 +24,16 @@ export default function Button({
   };
 
   const variantStyles = {
-    gold: "gradient-accent text-accent-foreground shadow-soft hover:shadow-card focus:ring-accent font-bold btn-shimmer",
-    accent: "gradient-accent text-accent-foreground shadow-soft hover:shadow-card focus:ring-accent font-bold btn-shimmer",
-    primary: "bg-primary text-primary-foreground hover:opacity-95 shadow-soft hover:shadow-card focus:ring-primary font-bold btn-shimmer",
-    navy: "bg-primary text-primary-foreground hover:opacity-95 shadow-soft hover:shadow-card focus:ring-primary font-bold btn-shimmer",
-    outline: "border border-border text-primary hover:bg-secondary focus:ring-primary font-semibold hover:border-primary/40",
-    outlineLight: "border border-white/40 text-white hover:bg-white/10 hover:border-white focus:ring-white font-medium",
-    outlineDark: "border border-border text-foreground hover:bg-secondary focus:ring-primary font-semibold",
-    white: "bg-background text-primary hover:bg-secondary border border-border shadow-soft focus:ring-primary font-bold hover:shadow-card",
-    ghost: "text-muted-foreground hover:text-primary hover:bg-secondary",
+    primary: "bg-[#0369a1] text-white hover:bg-[#0ea5e9] shadow-soft hover:shadow-card focus:ring-[#0369a1] font-bold btn-shimmer",
+    gold: "bg-[#0369a1] text-white hover:bg-[#0ea5e9] shadow-soft hover:shadow-card focus:ring-[#0369a1] font-bold btn-shimmer",
+    accent: "bg-[#0369a1] text-white hover:bg-[#0ea5e9] shadow-soft hover:shadow-card focus:ring-[#0369a1] font-bold btn-shimmer",
+    navy: "bg-[#0369a1] text-white hover:bg-[#0ea5e9] shadow-soft hover:shadow-card focus:ring-[#0369a1] font-bold btn-shimmer",
+    secondary: "bg-[#e0f2fe] text-[#075985] hover:bg-[#bae6fd] border border-[#cfe6f5] focus:ring-[#0369a1] font-bold shadow-xs",
+    outline: "border border-[#cfe6f5] text-[#0369a1] hover:bg-[#e0f2fe] hover:border-[#0369a1] focus:ring-[#0369a1] font-semibold",
+    outlineLight: "border border-white/60 text-white hover:bg-white/10 hover:border-white focus:ring-white font-medium",
+    outlineDark: "border border-[#cfe6f5] text-[#082f49] hover:bg-[#e0f2fe] focus:ring-[#0369a1] font-semibold",
+    white: "bg-white text-[#0369a1] hover:bg-[#e0f2fe] border border-[#cfe6f5] shadow-soft focus:ring-[#0369a1] font-bold hover:shadow-card",
+    ghost: "text-[#4b6b82] hover:text-[#0369a1] hover:bg-[#e0f2fe]",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

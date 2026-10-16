@@ -29,35 +29,35 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-200 border-b border-border/80 bg-background/95 backdrop-blur-md ${
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-200 border-b border-[#cfe6f5] bg-white/95 backdrop-blur-md ${
         isScrolled ? 'shadow-soft' : ''
       }`}
     >
       {/* Top Institutional Utility Bar (Desktop) */}
       {!isScrolled && (
-        <div className="hidden lg:block bg-primary text-primary-foreground border-b border-white/10 text-xs py-2 px-4 sm:px-6 lg:px-8">
+        <div className="hidden lg:block bg-[#0369a1] text-white border-b border-[#cfe6f5]/20 text-xs py-2 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-2 opacity-90">
+            <div className="flex items-center gap-2 opacity-95">
               <span className="font-medium">Direct Institutional Framework · 24+ Study Destinations · Verified African School Consoles</span>
             </div>
             <div className="flex items-center gap-5">
-              <div className="flex items-center gap-1.5 opacity-90">
-                <Clock className="w-3.5 h-3.5 text-accent" />
+              <div className="flex items-center gap-1.5 opacity-95">
+                <Clock className="w-3.5 h-3.5 text-[#bae6fd]" />
                 <span>{siteConfig.officeHours}</span>
               </div>
-              <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
-                <Phone className="w-3.5 h-3.5 text-accent" />
+              <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-1.5 opacity-95 hover:opacity-100 transition-opacity">
+                <Phone className="w-3.5 h-3.5 text-[#bae6fd]" />
                 <span>{siteConfig.phone}</span>
               </a>
-              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
-                <Mail className="w-3.5 h-3.5 text-accent" />
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1.5 opacity-95 hover:opacity-100 transition-opacity">
+                <Mail className="w-3.5 h-3.5 text-[#bae6fd]" />
                 <span>{siteConfig.email}</span>
               </a>
               <a
                 href={siteConfig.portalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 font-bold text-accent hover:underline ml-1"
+                className="flex items-center gap-1 font-bold text-[#e0f2fe] hover:underline hover:text-white ml-1"
               >
                 <span>{siteConfig.portalText}</span>
                 <ArrowUpRight className="w-3 h-3" />
@@ -73,11 +73,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-xl p-0.5 sm:p-1 shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-[#0369a1] rounded-xl p-0.5 sm:p-1 shrink-0"
             aria-label={`${siteConfig.brandName} Home`}
           >
             {/* Official Favicon / Emblem Mark */}
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-primary-soft/80 p-1.5 border border-primary/20 flex items-center justify-center shadow-xs group-hover:border-primary/40 transition-colors shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-[#e0f2fe] p-1.5 border border-[#cfe6f5] flex items-center justify-center shadow-xs group-hover:border-[#0369a1]/40 transition-colors shrink-0">
               <img
                 src="/favicon.png"
                 alt="Education eXcellence Services Emblem"
@@ -97,10 +97,10 @@ export default function Navbar() {
                 className="h-9 sm:h-10 w-auto object-contain shrink-0 hidden sm:block"
               />
               <div className="sm:hidden flex flex-col">
-                <span className="font-display text-sm font-extrabold text-foreground leading-tight whitespace-nowrap">
-                  Education <span className="text-primary">eXcellence</span>
+                <span className="font-display text-sm font-extrabold text-[#082f49] leading-tight whitespace-nowrap">
+                  Education <span className="text-[#0369a1]">eXcellence</span>
                 </span>
-                <span className="text-[9px] tracking-wider uppercase font-semibold text-muted-foreground whitespace-nowrap">
+                <span className="text-[9px] tracking-wider uppercase font-semibold text-[#4b6b82] whitespace-nowrap">
                   Services · Africa
                 </span>
               </div>
@@ -117,8 +117,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition-all whitespace-nowrap ${
                     isActive
-                      ? 'text-primary bg-primary-soft/80 font-bold shadow-xs'
-                      : 'text-muted-foreground hover:bg-secondary/60 hover:text-primary nav-link-animated'
+                      ? 'text-[#0369a1] bg-[#e0f2fe] font-bold shadow-xs'
+                      : 'text-[#4b6b82] hover:bg-[#e0f2fe] hover:text-[#0369a1] nav-link-animated'
                   }`}
                 >
                   {link.name}
@@ -133,21 +133,21 @@ export default function Navbar() {
               href={siteConfig.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-full border border-border px-4 py-2 text-sm font-semibold text-primary transition-all hover:bg-secondary hover:border-primary/40 flex items-center gap-2 whitespace-nowrap shadow-xs hover:-translate-y-0.5"
+              className="group rounded-full border border-[#cfe6f5] px-4 py-2 text-sm font-semibold text-[#0369a1] transition-all hover:bg-[#e0f2fe] hover:border-[#0369a1]/40 flex items-center gap-2 whitespace-nowrap shadow-xs hover:-translate-y-0.5"
               title="Open Institutional Partner Portal"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-radar absolute inline-flex h-full w-full rounded-full bg-[#0ea5e9] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0369a1]"></span>
               </span>
-              <Globe className="w-3.5 h-3.5 text-primary shrink-0 transition-transform group-hover:rotate-12" />
+              <Globe className="w-3.5 h-3.5 text-[#0369a1] shrink-0 transition-transform group-hover:rotate-12" />
               <span>Portal Access</span>
-              <ArrowUpRight className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+              <ArrowUpRight className="w-3 h-3 text-[#4b6b82] group-hover:text-[#0369a1] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
             </a>
 
             <Button
               to="/book-a-demo"
-              variant="accent"
+              variant="primary"
               size="sm"
               icon={ArrowRight}
               className="whitespace-nowrap px-5 py-2 text-xs xl:text-sm font-bold shadow-soft"
@@ -156,12 +156,12 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Hamburger Button (min-h-[44px] min-w-[44px] for WCAG 2.5.8) */}
+          {/* Mobile Hamburger Button */}
           <div className="flex lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-border text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+              className="inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[#cfe6f5] text-[#0369a1] hover:bg-[#e0f2fe] focus:outline-none focus:ring-2 focus:ring-[#0369a1] transition-colors"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -173,7 +173,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-b border-border px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top duration-200 shadow-card">
+        <div className="lg:hidden bg-white border-b border-[#cfe6f5] px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top duration-200 shadow-card">
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -183,8 +183,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'bg-primary-soft text-primary font-bold shadow-xs'
-                      : 'text-foreground hover:bg-secondary'
+                      ? 'bg-[#e0f2fe] text-[#0369a1] font-bold shadow-xs'
+                      : 'text-[#082f49] hover:bg-[#e0f2fe]'
                   }`}
                 >
                   {link.name}
@@ -194,23 +194,23 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Portal Link & CTAs */}
-          <div className="pt-2 border-t border-border space-y-2">
+          <div className="pt-2 border-t border-[#cfe6f5] space-y-2">
             <a
               href={siteConfig.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-primary border border-border bg-secondary/50 hover:bg-secondary"
+              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-[#0369a1] border border-[#cfe6f5] bg-[#e0f2fe]/60 hover:bg-[#e0f2fe]"
             >
               <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-primary" />
+                <Globe className="w-4 h-4 text-[#0369a1]" />
                 <span>Portal: {siteConfig.portalText}</span>
               </div>
-              <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
+              <ArrowUpRight className="w-4 h-4 text-[#4b6b82]" />
             </a>
 
             <Button
               to="/book-a-demo"
-              variant="accent"
+              variant="primary"
               size="lg"
               className="w-full text-center"
               icon={ArrowRight}
@@ -220,20 +220,20 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Contact & Operating Hours */}
-          <div className="pt-3 border-t border-border text-xs text-muted-foreground space-y-2">
+          <div className="pt-3 border-t border-[#cfe6f5] text-xs text-[#4b6b82] space-y-2">
             <div className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-accent shrink-0" />
+              <Clock className="w-3.5 h-3.5 text-[#0369a1] shrink-0" />
               <span>{siteConfig.officeHours}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-accent shrink-0" />
-              <a href={`tel:${siteConfig.phone}`} className="hover:text-primary">
+              <Phone className="w-3.5 h-3.5 text-[#0369a1] shrink-0" />
+              <a href={`tel:${siteConfig.phone}`} className="hover:text-[#0369a1]">
                 {siteConfig.phone}
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-accent shrink-0" />
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">
+              <Mail className="w-3.5 h-3.5 text-[#0369a1] shrink-0" />
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-[#0369a1]">
                 {siteConfig.email}
               </a>
             </div>

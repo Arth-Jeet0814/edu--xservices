@@ -15,7 +15,7 @@ export default function RouteLoadingBar() {
       aria-hidden="true"
       className="fixed top-0 left-0 right-0 z-[100] h-[2.5px] pointer-events-none bg-transparent"
     >
-      <div className="h-full bg-gradient-to-r from-navy-600 via-gold-400 to-gold-500 route-progress-bar shadow-[0_0_8px_rgba(217,119,6,0.6)]" />
+      <div className="h-full bg-gradient-to-r from-[#0369a1] via-[#0ea5e9] to-[#38bdf8] route-progress-bar shadow-[0_0_8px_rgba(3,105,161,0.5)]" />
     </div>
   );
 }

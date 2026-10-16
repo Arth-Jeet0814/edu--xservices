@@ -4,35 +4,60 @@
 
 :root {
   --radius: 0.9rem;
-  --background: oklch(100% 0 0);
-  --foreground: oklch(24% 0.05 265);
-  --card: oklch(100% 0 0);
-  --card-foreground: oklch(24% 0.05 265);
-  --popover: oklch(100% 0 0);
-  --popover-foreground: oklch(24% 0.05 265);
-  --primary: oklch(34% 0.11 264);
-  --primary-foreground: oklch(99% 0.005 250);
-  --primary-soft: oklch(93% 0.035 250);
-  --secondary: oklch(96% 0.02 250);
-  --secondary-foreground: oklch(34% 0.11 264);
-  --muted: oklch(97% 0.012 250);
-  --muted-foreground: oklch(43% 0.045 258);
-  --accent: oklch(76% 0.15 68);
-  --accent-foreground: oklch(26% 0.06 60);
-  --crimson: oklch(52% 0.19 12);
-  --crimson-foreground: oklch(99% 0.005 250);
-  --destructive: oklch(57.7% 0.245 27.325);
-  --destructive-foreground: oklch(99% 0.005 250);
-  --border: oklch(92% 0.014 255);
-  --input: oklch(92% 0.014 255);
-  --ring: oklch(55% 0.09 260);
-  --gradient-hero: linear-gradient(135deg, oklch(97% 0.02 245) 0%, oklch(93% 0.045 240) 45%, oklch(98% 0.015 250) 100%);
-  --gradient-primary: linear-gradient(135deg, oklch(32% 0.11 264) 0%, oklch(46% 0.13 254) 100%);
-  --gradient-accent: linear-gradient(135deg, oklch(78% 0.15 72) 0%, oklch(70% 0.17 45) 100%);
-  --gradient-sky: linear-gradient(180deg, oklch(97% 0.025 245) 0%, oklch(93.5% 0.045 240) 50%, oklch(97% 0.025 248) 100%);
-  --shadow-soft: 0 4px 18px -6px oklch(34% 0.11 264 / 0.14);
-  --shadow-card: 0 12px 32px -14px oklch(34% 0.11 264 / 0.22);
-  --shadow-lift: 0 24px 50px -20px oklch(34% 0.11 264 / 0.3);
+  
+  /* Primary & Accents */
+  --primary: #0369a1;
+  --primary-hover: #0ea5e9;
+  --primary-foreground: #ffffff;
+  --primary-soft: #e0f2fe;
+
+  /* Surfaces & Backgrounds */
+  --bg: #f0f9ff;
+  --background: #f0f9ff;
+  --tint: #e0f2fe;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #082f49;
+  --popover: #ffffff;
+  --popover-foreground: #082f49;
+
+  /* Secondary & Muted */
+  --secondary: #e0f2fe;
+  --secondary-foreground: #075985;
+  --muted: #e0f2fe;
+  --muted-foreground: #4b6b82;
+
+  /* Typography */
+  --text: #082f49;
+  --foreground: #082f49;
+  --text-muted: #4b6b82;
+
+  /* Borders & Inputs */
+  --border: #cfe6f5;
+  --input: #cfe6f5;
+  --ring: #0369a1;
+
+  /* Accents */
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --crimson: #0369a1;
+  --crimson-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  /* Hero Video Overlay (55% opacity #082f49) */
+  --overlay: rgba(8, 47, 73, 0.55);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+  --gradient-primary: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+  --gradient-accent: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+  --gradient-sky: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 18px -6px rgba(3, 105, 161, 0.12);
+  --shadow-card: 0 12px 32px -14px rgba(8, 47, 73, 0.10);
+  --shadow-lift: 0 24px 50px -20px rgba(8, 47, 73, 0.16);
 }
 
 @layer base {
@@ -86,6 +111,10 @@
 
 .shadow-lift {
   box-shadow: var(--shadow-lift);
+}
+
+.hero-video-overlay {
+  background-color: var(--overlay, rgba(8, 47, 73, 0.55));
 }
 
 .container-page {
@@ -339,7 +368,12 @@
 
 /* Floating quick back-to-top button pulse */
 .shadow-floating {
-  box-shadow: 0 10px 25px -5px oklch(34% 0.11 264 / 0.28), 0 8px 10px -6px oklch(34% 0.11 264 / 0.2);
+  box-shadow: 0 10px 25px -5px rgba(3, 105, 161, 0.28), 0 8px 10px -6px rgba(3, 105, 161, 0.20);
+}
+
+/* Hero video overlay rule: 50% to 60% opacity #082f49 so white text stays readable */
+.hero-video-overlay {
+  background-color: var(--overlay);
 }
 
 /* Nav Link Hover Underline Indicator */
@@ -365,19 +399,19 @@
   transform: scaleX(1);
 }
 
-/* Aurora background drift for Dark Institutional Sections */
+/* Aurora background drift */
 @keyframes auroraShift {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.35;
+    opacity: 0.25;
   }
   50% {
     transform: translate(25px, -15px) scale(1.12);
-    opacity: 0.65;
+    opacity: 0.45;
   }
   100% {
     transform: translate(-20px, 15px) scale(0.95);
-    opacity: 0.45;
+    opacity: 0.35;
   }
 }
 
@@ -385,13 +419,13 @@
   animation: auroraShift 12s ease-in-out infinite alternate;
 }
 
-/* Golden Accent Breathing Glow */
+/* Accent Breathing Glow */
 @keyframes goldGlow {
   0%, 100% {
-    box-shadow: 0 0 15px -3px oklch(76% 0.15 68 / 0.2);
+    box-shadow: 0 0 15px -3px rgba(14, 165, 233, 0.25);
   }
   50% {
-    box-shadow: 0 0 26px 4px oklch(76% 0.15 68 / 0.42);
+    box-shadow: 0 0 26px 4px rgba(14, 165, 233, 0.45);
   }
 }
 
