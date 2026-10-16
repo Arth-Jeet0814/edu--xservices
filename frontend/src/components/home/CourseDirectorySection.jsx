@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Lock, ArrowRight, ArrowUpRight, RefreshCw } from 'lucide-react';
 import { homeContent, siteConfig } from '../../data/content';
+import { getCountries, getLevels, getStreams } from '../../data/api';
 import Section from '../common/Section';
 import Button from '../common/Button';
 
@@ -11,6 +12,28 @@ export default function CourseDirectorySection() {
   const [studyLevel, setStudyLevel] = useState('');
   const [fieldOfStudy, setFieldOfStudy] = useState('');
   const [hasSearched, setHasSearched] = useState(false);
+
+  const [destinationsList, setDestinationsList] = useState(courseDirectory.destinations);
+  const [levelsList, setLevelsList] = useState(courseDirectory.studyLevels);
+  const [streamsList, setStreamsList] = useState(courseDirectory.fieldsOfStudy);
+
+  useEffect(() => {
+    getCountries().then((data) => {
+      if (data && data.length > 0) {
+        setDestinationsList(data.map((c) => c.countryname || c));
+      }
+    });
+    getLevels().then((data) => {
+      if (data && data.length > 0) {
+        setLevelsList(data.map((l) => l.label || l.name || l));
+      }
+    });
+    getStreams().then((data) => {
+      if (data && data.length > 0) {
+        setStreamsList(data.map((s) => s.name || s.text || s));
+      }
+    });
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -42,6 +65,7 @@ export default function CourseDirectorySection() {
                 </label>
                 <select
                   id="destination-select"
+                  name="destination"
                   value={destination}
                   onChange={(e) => {
                     setDestination(e.target.value);
@@ -50,7 +74,7 @@ export default function CourseDirectorySection() {
                   className="w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary transition-all cursor-pointer"
                 >
                   <option value="">Select Destination</option>
-                  {courseDirectory.destinations.map((dest) => (
+                  {destinationsList.map((dest) => (
                     <option key={dest} value={dest}>
                       {dest}
                     </option>
@@ -65,6 +89,7 @@ export default function CourseDirectorySection() {
                 </label>
                 <select
                   id="study-level-select"
+                  name="studyLevel"
                   value={studyLevel}
                   onChange={(e) => {
                     setStudyLevel(e.target.value);
@@ -73,7 +98,7 @@ export default function CourseDirectorySection() {
                   className="w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary transition-all cursor-pointer"
                 >
                   <option value="">Select Study Level</option>
-                  {courseDirectory.studyLevels.map((lvl) => (
+                  {levelsList.map((lvl) => (
                     <option key={lvl} value={lvl}>
                       {lvl}
                     </option>
@@ -88,6 +113,7 @@ export default function CourseDirectorySection() {
                 </label>
                 <select
                   id="field-study-select"
+                  name="fieldOfStudy"
                   value={fieldOfStudy}
                   onChange={(e) => {
                     setFieldOfStudy(e.target.value);
@@ -96,7 +122,7 @@ export default function CourseDirectorySection() {
                   className="w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary transition-all cursor-pointer"
                 >
                   <option value="">Select Field of Study</option>
-                  {courseDirectory.fieldsOfStudy.map((fld) => (
+                  {streamsList.map((fld) => (
                     <option key={fld} value={fld}>
                       {fld}
                     </option>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Search,
   Building,
@@ -9,120 +9,56 @@ import {
   RefreshCw,
   Sparkles,
   BookOpen,
+  Loader2,
 } from 'lucide-react';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { siteConfig, homeContent } from '../data/content';
+import { getCountries, getLevels, getStreams, getCourseData, FALLBACK_DB_COURSES } from '../data/api';
 import Section from '../components/common/Section';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 
-// Sample accredited program database for interactive live demonstration
-const SAMPLE_PROGRAMS = [
-  {
-    id: 1,
-    title: 'B.Eng. Artificial Intelligence & Robotics',
-    university: 'McGill University',
-    country: 'Canada',
-    code: 'ca',
-    level: "Undergraduate / Bachelor's",
-    field: 'Computer Science & Artificial Intelligence',
-    duration: '4 Years',
-    language: 'English',
-    curricula: 'French Bac (14+), IB (34+), A-Levels (AAB)',
-    scholarship: 'Up to 40% Merit Quota'
-  },
-  {
-    id: 2,
-    title: 'B.Sc. Mechanical & Aerospace Engineering',
-    university: 'University of Utah',
-    country: 'United States',
-    code: 'us',
-    level: "Undergraduate / Bachelor's",
-    field: 'Engineering & Technology',
-    duration: '4 Years',
-    language: 'English',
-    curricula: 'WAEC (Distinction), IB (32+), French Bac (13.5+)',
-    scholarship: 'Direct Institutional Grant'
-  },
-  {
-    id: 3,
-    title: 'M.Sc. Global Public Health & Epidemiology',
-    university: 'Middle Tennessee State University',
-    country: 'United States',
-    code: 'us',
-    level: "Postgraduate / Master's",
-    field: 'Medicine, Health & Biomedical Sciences',
-    duration: '2 Years',
-    language: 'English',
-    curricula: 'Accredited Bachelor (GPA 3.2+)',
-    scholarship: 'Research Assistantship'
-  },
-  {
-    id: 4,
-    title: 'Licence en Finance Internationale & Gestion',
-    university: 'Université de Moncton',
-    country: 'Canada',
-    code: 'ca',
-    level: "Undergraduate / Bachelor's",
-    field: 'Business, Finance & Management',
-    duration: '3-4 Years',
-    language: 'French',
-    curricula: 'Baccalauréat Français / Africain (Mention Bien)',
-    scholarship: 'Bourse d\'Excellence Francophone'
-  },
-  {
-    id: 5,
-    title: 'B.Sc. Applied Computing & Software Engineering',
-    university: 'Sheridan College Institute of Technology',
-    country: 'Canada',
-    code: 'ca',
-    level: "Undergraduate / Bachelor's",
-    field: 'Computer Science & Artificial Intelligence',
-    duration: '4 Years (with Co-op)',
-    language: 'English',
-    curricula: 'WAEC / French Bac / Cambridge A-Levels',
-    scholarship: 'Co-op Work Term Placement'
-  },
-  {
-    id: 6,
-    title: 'International Foundation Year in Engineering',
-    university: 'Seattle Colleges Higher Education District',
-    country: 'United States',
-    code: 'us',
-    level: 'University Foundation Year',
-    field: 'Engineering & Technology',
-    duration: '1 Year (Pathways to Tier-1)',
-    language: 'English',
-    curricula: 'Completed Secondary Terminale / High School',
-    scholarship: 'Guaranteed University Transfer'
-  },
-  {
-    id: 7,
-    title: 'B.Sc. Biomedical Science & Genetics',
-    university: 'Clayton State University',
-    country: 'United States',
-    code: 'us',
-    level: "Undergraduate / Bachelor's",
-    field: 'Medicine, Health & Biomedical Sciences',
-    duration: '4 Years',
-    language: 'English',
-    curricula: 'French Bac (S), WAEC Sciences, IB Diploma',
-    scholarship: 'International Merit Waiver'
-  },
-  {
-    id: 8,
-    title: 'Advanced Diploma in Interactive Media & Web',
-    university: 'St. Clair College of Applied Arts',
-    country: 'Canada',
-    code: 'ca',
-    level: 'Executive & Specialized Diploma',
-    field: 'Computer Science & Artificial Intelligence',
-    duration: '2-3 Years (PGWP Eligible)',
-    language: 'English',
-    curricula: 'High School Diploma / Baccalauréat',
-    scholarship: 'Applied Technology Bursary'
-  }
-];
+const formatDbCourses = (courses) => {
+  const countryCodes = {
+    usa: 'us',
+    unitedstates: 'us',
+    unitedstatesofamerica: 'us',
+    france: 'fr',
+    canada: 'ca',
+    australia: 'au',
+    germany: 'de',
+    unitedkingdom: 'gb',
+    uk: 'gb',
+    ireland: 'ie'
+  };
+  return (courses || []).map((c, i) => {
+    const cCountry = (c.country || 'Global').trim();
+    const cleanKey = cCountry.toLowerCase().replace(/[^a-z]/g, '');
+    const flagCode = countryCodes[cleanKey] || cleanKey.slice(0, 2) || 'ca';
+
+    const cleanTitle = (c.name || c.coursename || 'Accredited Degree Program').replace(/\s+/g, ' ').trim();
+    const cleanUni = (c.university || c.collegename || 'Global Partner University').replace(/\s+/g, ' ').trim();
+
+    return {
+      id: c.id || (100 + i),
+      title: cleanTitle,
+      university: cleanUni,
+      country: cCountry,
+      code: flagCode,
+      level: c.level || c.levelofstudy || "Undergraduate / Bachelor's",
+      field: c.stream || c.streamname || 'General Studies',
+      duration: c.durationText || (c.duration ? `${c.duration} Years` : '3-4 Years'),
+      language: c.language || 'English',
+      curricula: c.eligibility || 'Standard International Requirements',
+      scholarship: c.scholarshipText || (c.scholarship === 'yes' ? 'Scholarship Available' : 'Direct Admission')
+    };
+  });
+};
+
+const normalizeStr = (str) => {
+  if (!str) return '';
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+};
 
 export default function CourseFinderPage() {
   useDocumentTitle('Course Finder | 96,083 Global Degree Programs');
@@ -135,31 +71,80 @@ export default function CourseFinderPage() {
   const [selectedField, setSelectedField] = useState('');
   const [activeQuickField, setActiveQuickField] = useState('');
 
-  // Filtered Programs
+  const [destinationsList, setDestinationsList] = useState(courseDirectory.destinations);
+  const [levelsList, setLevelsList] = useState(courseDirectory.studyLevels);
+  const [streamsList, setStreamsList] = useState(courseDirectory.fieldsOfStudy);
+  const [programsList, setProgramsList] = useState(() => formatDbCourses(FALLBACK_DB_COURSES));
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    getCountries().then((data) => {
+      if (data && data.length > 0) {
+        const unique = Array.from(new Set(data.map((c) => c.countryname || c).filter(Boolean)));
+        setDestinationsList(unique);
+      }
+    });
+    getLevels().then((data) => {
+      if (data && data.length > 0) {
+        const unique = Array.from(new Set(data.map((l) => l.label || l.name || l).filter(Boolean)));
+        setLevelsList(unique);
+      }
+    });
+    getStreams().then((data) => {
+      if (data && data.length > 0) {
+        const unique = Array.from(new Set(data.map((s) => s.name || s.text || s).filter(Boolean)));
+        setStreamsList(unique);
+      }
+    });
+    getCourseData({ perPage: 100 }).then((res) => {
+      if (res && res.courses && res.courses.length > 0) {
+        setProgramsList(formatDbCourses(res.courses));
+      }
+      setIsLoading(false);
+    }).catch(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  // Filtered Programs with smart fuzzy/alias matching
   const filteredPrograms = useMemo(() => {
-    return SAMPLE_PROGRAMS.filter((prog) => {
+    return programsList.filter((prog) => {
       const matchKeyword =
         !keyword ||
         prog.title.toLowerCase().includes(keyword.toLowerCase()) ||
-        prog.university.toLowerCase().includes(keyword.toLowerCase());
+        prog.university.toLowerCase().includes(keyword.toLowerCase()) ||
+        prog.country.toLowerCase().includes(keyword.toLowerCase());
 
+      const normProgCountry = normalizeStr(prog.country);
+      const normSelCountry = normalizeStr(selectedDestination);
       const matchDestination =
         !selectedDestination ||
         selectedDestination === 'All' ||
-        prog.country === selectedDestination;
+        normProgCountry === normSelCountry ||
+        (normSelCountry === 'unitedstates' && normProgCountry === 'usa') ||
+        (normSelCountry === 'usa' && normProgCountry === 'unitedstates') ||
+        (normSelCountry === 'unitedkingdom' && normProgCountry === 'uk') ||
+        (normSelCountry === 'uk' && normProgCountry === 'unitedkingdom');
 
+      const normProgLevel = normalizeStr(prog.level);
+      const normSelLevel = normalizeStr(selectedLevel);
       const matchLevel =
         !selectedLevel ||
         selectedLevel === 'All' ||
-        prog.level === selectedLevel;
+        normProgLevel.includes(normSelLevel) ||
+        normSelLevel.includes(normProgLevel);
+
+      const normProgField = normalizeStr(prog.field);
+      const normSelField = normalizeStr(selectedField);
+      const normQuickField = normalizeStr(activeQuickField);
 
       const matchField =
-        (!selectedField || prog.field === selectedField) &&
-        (!activeQuickField || prog.field === activeQuickField);
+        (!selectedField || selectedField === 'All' || normProgField.includes(normSelField) || normSelField.includes(normProgField)) &&
+        (!activeQuickField || normProgField.includes(normQuickField) || normQuickField.includes(normProgField));
 
       return matchKeyword && matchDestination && matchLevel && matchField;
     });
-  }, [keyword, selectedDestination, selectedLevel, selectedField, activeQuickField]);
+  }, [programsList, keyword, selectedDestination, selectedLevel, selectedField, activeQuickField]);
 
   const resetFilters = () => {
     setKeyword('');
@@ -254,6 +239,7 @@ export default function CourseFinderPage() {
         id="finder-console"
         background="light"
         align="left"
+        animate={false}
         className="!pt-0 pb-16 sm:pb-24 relative overflow-hidden"
       >
         {/* Ambient Atmospheric Lighting & Depth */}
@@ -299,12 +285,13 @@ export default function CourseFinderPage() {
               </label>
               <select
                 id="finder-dest"
+                name="destination"
                 value={selectedDestination}
                 onChange={(e) => setSelectedDestination(e.target.value)}
                 className="w-full bg-background border border-input rounded-xl px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary cursor-pointer transition-all"
               >
-                <option value="">All Destinations (24 Countries)</option>
-                {courseDirectory.destinations.map((d) => (
+                <option value="">All Destinations</option>
+                {destinationsList.map((d) => (
                   <option key={d} value={d}>{d}</option>
                 ))}
               </select>
@@ -317,12 +304,13 @@ export default function CourseFinderPage() {
               </label>
               <select
                 id="finder-level"
+                name="level"
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
                 className="w-full bg-background border border-input rounded-xl px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary cursor-pointer transition-all"
               >
                 <option value="">All Levels</option>
-                {courseDirectory.studyLevels.map((lvl) => (
+                {levelsList.map((lvl) => (
                   <option key={lvl} value={lvl}>{lvl}</option>
                 ))}
               </select>
@@ -335,12 +323,13 @@ export default function CourseFinderPage() {
               </label>
               <select
                 id="finder-field"
+                name="field"
                 value={selectedField}
                 onChange={(e) => setSelectedField(e.target.value)}
                 className="w-full bg-background border border-input rounded-xl px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary cursor-pointer transition-all"
               >
                 <option value="">All Fields of Study</option>
-                {courseDirectory.fieldsOfStudy.map((fld) => (
+                {streamsList.map((fld) => (
                   <option key={fld} value={fld}>{fld}</option>
                 ))}
               </select>
@@ -385,7 +374,12 @@ export default function CourseFinderPage() {
         </div>
 
         {/* Program Cards Grid (New Theme Cards) */}
-        {filteredPrograms.length > 0 ? (
+        {isLoading ? (
+          <div className="p-16 text-center bg-card rounded-3xl border border-border shadow-soft mb-12 space-y-3">
+            <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto" />
+            <p className="text-sm font-semibold text-foreground">Loading degree programs...</p>
+          </div>
+        ) : filteredPrograms.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {filteredPrograms.map((prog) => (
               <Card
@@ -395,18 +389,13 @@ export default function CourseFinderPage() {
                 className="p-7 bg-card border border-border rounded-3xl shadow-soft hover:shadow-card hover:border-primary/40 flex flex-col justify-between card-hover-lift transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-accent-foreground bg-accent/15 border border-accent/30 px-2.5 py-0.5 rounded-md">
-                      {prog.level}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground shrink-0">
-                      <img
-                        src={`https://flagcdn.com/w40/${prog.code}.png`}
-                        alt={`${prog.country} flag`}
-                        className="w-4 h-3 object-cover rounded shadow-xs"
-                      />
-                      <span>{prog.country}</span>
-                    </div>
+                  <div className="flex items-center justify-end gap-1.5 text-xs text-muted-foreground mb-3">
+                    <img
+                      src={`https://flagcdn.com/w40/${prog.code}.png`}
+                      alt={`${prog.country} flag`}
+                      className="w-4 h-3 object-cover rounded shadow-xs"
+                    />
+                    <span>{prog.country}</span>
                   </div>
 
                   <h3 className="font-display text-xl font-bold text-foreground mb-1.5 leading-snug tracking-tight">
@@ -439,7 +428,7 @@ export default function CourseFinderPage() {
                     Partner School Allocation
                   </span>
                   <Button
-                    to="/book-a-demo"
+                    to={`/book-a-demo?course=${encodeURIComponent(prog.title)}&uni=${encodeURIComponent(prog.university)}&country=${encodeURIComponent(prog.country || '')}`}
                     variant="accent"
                     size="sm"
                   >
@@ -453,7 +442,7 @@ export default function CourseFinderPage() {
           <div className="p-12 text-center bg-card rounded-3xl border border-border shadow-soft mb-12 space-y-3">
             <Compass className="w-10 h-10 text-muted-foreground mx-auto animate-float" />
             <h3 className="font-display text-lg font-bold text-foreground">
-              No matching sample programs found
+              No matching programs found
             </h3>
             <p className="text-xs text-muted-foreground max-w-sm mx-auto">
               Try adjusting your keyword, destination, or study level filters, or request full institutional directory access.

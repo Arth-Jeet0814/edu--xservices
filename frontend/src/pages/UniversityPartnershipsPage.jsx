@@ -17,6 +17,7 @@ import { universityContent, siteConfig, homeContent } from '../data/content';
 import Section from '../components/common/Section';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
+import { submitEnquiry } from '../data/api';
 
 const iconMap = {
   GraduationCap: GraduationCap,
@@ -72,7 +73,7 @@ export default function UniversityPartnershipsPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -86,10 +87,22 @@ export default function UniversityPartnershipsPage() {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      await submitEnquiry({
+        fullName: formData.contactName,
+        email: formData.email,
+        phone: formData.phone || 'N/A',
+        university: formData.universityName,
+        notes: `Title: ${formData.contactTitle} | Country: ${formData.country} | Type: ${formData.institutionType} | Focus: ${formData.intakeLevel} | Scholarships: ${formData.scholarshipAvailability} | Notes: ${formData.notes || 'None'}`,
+        purpose: 'Institutional Partnership Briefing',
+        preferredCountry: formData.country
+      });
+    } catch (err) {
+      console.warn('University partnership submission fallback:', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 700);
+    }
   };
 
   return (

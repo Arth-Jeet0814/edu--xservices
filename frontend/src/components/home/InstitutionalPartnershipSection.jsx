@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Send } from 'lucide-react';
 import { homeContent, siteConfig } from '../../data/content';
+import { submitEnquiry } from '../../data/api';
 import Section from '../common/Section';
 import Button from '../common/Button';
 
@@ -75,17 +76,17 @@ export default function InstitutionalPartnershipSection() {
 
     setIsSubmitting(true);
 
-    /**
-     * TODO: Connect this form submission to your backend API or email service:
-     * Examples:
-     * 1. EmailJS: emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_PUBLIC_KEY')
-     * 2. Formspree: fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', body: JSON.stringify(formData) })
-     * 3. Custom Node/Express endpoint: fetch('/api/institutional-applications', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) })
-     */
-    setTimeout(() => {
+    submitEnquiry({
+      ...formData,
+      fullName: formData.contactName,
+      university: formData.institutionName,
+      preferredCountry: formData.country,
+      notes: `Role: ${formData.contactTitle || formData.decisionMakerType}, Type: ${formData.institutionType}, Curriculum: ${formData.curriculumType}, Country: ${formData.country}, Rationale: ${formData.rationale}`,
+      purpose: 'Institutional Pre-Screening'
+    }).finally(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 700);
+    });
   };
 
   return (

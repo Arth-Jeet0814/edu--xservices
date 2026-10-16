@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Search } from 'lucide-react';
 import { homeContent } from '../../data/content';
+import { getCountries, getLevels, FALLBACK_COUNTRIES, FALLBACK_LEVELS } from '../../data/api';
 import Button from '../common/Button';
 
 export default function HeroSection() {
@@ -12,6 +13,18 @@ export default function HeroSection() {
   const [courseName, setCourseName] = useState('');
   const [level, setLevel] = useState('');
   const [intake, setIntake] = useState('');
+
+  const [countriesList, setCountriesList] = useState(FALLBACK_COUNTRIES);
+  const [levelsList, setLevelsList] = useState(FALLBACK_LEVELS);
+
+  useEffect(() => {
+    getCountries().then((data) => {
+      if (data && data.length > 0) setCountriesList(data);
+    });
+    getLevels().then((data) => {
+      if (data && data.length > 0) setLevelsList(data);
+    });
+  }, []);
 
   const scrollToForm = () => {
     const el = document.getElementById('partnerFormMain');
@@ -128,27 +141,27 @@ export default function HeroSection() {
           <div className="rounded-3xl border border-[#cfe6f5] bg-white p-4 sm:p-5 shadow-sm backdrop-blur">
             <form onSubmit={handleSearch} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
               <select
+                id="hero-country-select"
+                name="country"
                 aria-label="Country"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 className="w-full rounded-xl border border-[#cfe6f5] bg-[#f0f9ff] px-3.5 py-2.5 text-sm text-[#082f49] focus:border-[#0369a1] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/25 cursor-pointer transition-colors"
               >
                 <option value="">Country</option>
-                <option value="Canada">Canada</option>
-                <option value="Australia">Australia</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="United States">United States</option>
-                <option value="New Zealand">New Zealand</option>
-                <option value="Ireland">Ireland</option>
-                <option value="Germany">Germany</option>
-                <option value="France">France</option>
-                <option value="Dubai">Dubai</option>
-                <option value="Singapore">Singapore</option>
-                <option value="Malta">Malta</option>
-                <option value="Europe">Europe</option>
+                {countriesList.map((c) => {
+                  const val = c.countryname || c;
+                  return (
+                    <option key={c.countrymid || val} value={val}>
+                      {val}
+                    </option>
+                  );
+                })}
               </select>
 
               <input
+                id="hero-course-input"
+                name="courseName"
                 type="text"
                 aria-label="Course name"
                 placeholder="Course name"
@@ -158,19 +171,28 @@ export default function HeroSection() {
               />
 
               <select
+                id="hero-level-select"
+                name="level"
                 aria-label="Education level"
                 value={level}
                 onChange={(e) => setLevel(e.target.value)}
                 className="w-full rounded-xl border border-[#cfe6f5] bg-[#f0f9ff] px-3.5 py-2.5 text-sm text-[#082f49] focus:border-[#0369a1] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/25 cursor-pointer transition-colors"
               >
                 <option value="">Education level</option>
-                <option value="Bachelors">Bachelors</option>
-                <option value="Masters">Masters</option>
-                <option value="Diploma">Diploma</option>
-                <option value="PhD">PhD</option>
+                {levelsList.map((lvl) => {
+                  const val = lvl.name || lvl.label || lvl;
+                  const label = lvl.label || lvl.name || lvl;
+                  return (
+                    <option key={lvl.id || val} value={val}>
+                      {label}
+                    </option>
+                  );
+                })}
               </select>
 
               <select
+                id="hero-intake-select"
+                name="intake"
                 aria-label="Intake"
                 value={intake}
                 onChange={(e) => setIntake(e.target.value)}
@@ -189,6 +211,7 @@ export default function HeroSection() {
               </select>
 
               <button
+                id="hero-search-button"
                 type="submit"
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-white bg-[#0369a1] hover:bg-[#0ea5e9] shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer w-full"
               >
