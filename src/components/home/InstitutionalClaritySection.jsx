@@ -21,7 +21,6 @@ export default function InstitutionalClaritySection() {
       eyebrow={institutionalClarity.eyebrow}
       title={institutionalClarity.title}
       subtitle={institutionalClarity.description}
-      className="border-b border-slate-200"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {institutionalClarity.cards.map((card) => {

@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="pt-20">
       {/* Header */}
-      <section className="bg-navy-950 text-white py-16 sm:py-20 px-4 text-center border-b border-navy-800">
+      <section className="bg-navy-950 text-white py-16 sm:py-20 px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
           <span className="animate-hero-1 text-xs font-bold uppercase tracking-widest text-gold-400">
             Governance & Compliance

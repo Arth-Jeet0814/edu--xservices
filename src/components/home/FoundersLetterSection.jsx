@@ -14,7 +14,6 @@ export default function FoundersLetterSection() {
       eyebrow={foundersLetter.eyebrow}
       title={foundersLetter.title}
       subtitle={foundersLetter.subtitle}
-      className="border-b border-slate-200"
     >
       <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 sm:p-12 md:p-14 border border-slate-200/90 shadow-card text-left relative">
         {/* Institutional Memorandum Header */}

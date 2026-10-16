@@ -31,7 +31,7 @@ export default function GovernanceSection() {
       eyebrow={governance.eyebrow}
       title={governance.title}
       subtitle={governance.lead}
-      className="!border-t-0 border-b border-slate-200 !pt-10 sm:!pt-16"
+      className="!pt-10 sm:!pt-16"
     >
       {/* 6 Icon Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 text-left">

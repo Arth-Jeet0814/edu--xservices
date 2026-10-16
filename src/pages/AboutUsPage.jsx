@@ -127,7 +127,6 @@ export default function AboutUsPage() {
         eyebrow="CORE GOVERNANCE PRINCIPLES"
         title="Engineered for Institutional Trust"
         subtitle="Our operational standard rests upon three uncompromised institutional pillars designed exclusively for leadership teams."
-        className="border-b border-border"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left max-w-6xl mx-auto">
           {aboutContent.pillars.map((pillar, idx) => {
@@ -191,7 +190,7 @@ export default function AboutUsPage() {
       </Section>
 
       {/* 4. EXECUTIVE LEADERSHIP PROFILE */}
-      <section className="py-16 sm:py-20 bg-background border-b border-border">
+      <section className="py-16 sm:py-20 gradient-sky">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-card card-hover-lift flex flex-col sm:flex-row items-center gap-7 text-center sm:text-left hover:border-primary/40 transition-all duration-300">
             <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl overflow-hidden border-2 border-accent/60 shadow-md shrink-0 bg-navy-950 animate-gold-glow">
@@ -239,7 +238,7 @@ export default function AboutUsPage() {
       <GovernanceSection />
 
       {/* 7. ABOUT CTA BANNER */}
-      <section className="relative gradient-hero text-foreground py-16 sm:py-20 px-4 text-center border-t border-border overflow-hidden">
+      <section className="relative gradient-hero text-foreground py-16 sm:py-20 px-4 text-center overflow-hidden">
         <div 
           className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-primary/10 rounded-full blur-3xl animate-pulse-glow" 
           aria-hidden="true" 

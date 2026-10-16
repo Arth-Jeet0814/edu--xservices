@@ -172,7 +172,7 @@ export default function CourseFinderPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION (New Theme: Gradient Hero + Rotating Orbital SVGs) */}
-      <section className="relative gradient-hero text-foreground pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-border">
+      <section className="relative gradient-hero text-foreground pt-10 pb-20 sm:pt-14 sm:pb-24 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Ambient Pulsing Glow */}
         <div 
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
@@ -228,7 +228,7 @@ export default function CourseFinderPage() {
           </p>
 
           {/* Metric Highlights Row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-4xl animate-hero-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-4xl animate-hero-4 mb-4">
             <div className="rounded-2xl border border-border bg-card/90 p-4 shadow-soft text-center card-hover-lift hover:border-accent/40 transition-all">
               <p className="text-2xl sm:text-3xl font-extrabold text-accent">96,083+</p>
               <p className="text-xs font-semibold text-muted-foreground mt-0.5">Degree Programs</p>
@@ -254,10 +254,15 @@ export default function CourseFinderPage() {
         id="finder-console"
         background="light"
         align="left"
-        className="py-12 sm:py-16 border-b border-border"
+        className="!pt-0 pb-16 sm:pb-24 relative overflow-hidden"
       >
-        {/* Interactive Filter Control Panel (New Theme Card) */}
-        <div className="bg-card rounded-3xl p-6 sm:p-8 border border-border shadow-card mb-10">
+        {/* Ambient Atmospheric Lighting & Depth */}
+        <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-primary/5 via-primary/[0.02] to-transparent pointer-events-none" aria-hidden="true" />
+        <div className="absolute top-20 -right-20 w-[500px] h-[500px] bg-accent/8 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+        <div className="absolute top-96 -left-20 w-[500px] h-[500px] bg-primary/6 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+
+        {/* Floating Overlapping Filter Control Panel (Hero Bridge) */}
+        <div className="-mt-12 sm:-mt-16 lg:-mt-20 relative z-20 bg-card/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 border border-border/80 shadow-lift mb-10 ring-1 ring-black/[0.03]">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 pb-6 border-b border-border">
             {/* Search Keyword Input */}
             <div className="relative flex-1">

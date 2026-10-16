@@ -95,7 +95,7 @@ export default function UniversityPartnershipsPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION (New Theme: Gradient Hero + Rotating Orbital SVGs) */}
-      <section className="relative gradient-hero text-foreground pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-border">
+      <section className="relative gradient-hero text-foreground pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Ambient Pulsing Gradient Glow */}
         <div 
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
@@ -198,7 +198,7 @@ export default function UniversityPartnershipsPage() {
       </section>
 
       {/* 2. RECOGNIZED ACADEMIC NETWORK MARQUEE STRIP */}
-      <section className="bg-background border-b border-border py-6 overflow-hidden">
+      <section className="gradient-sky py-6 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-4 text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Academic Institutions & Testing Authorities in Our Network
@@ -238,7 +238,6 @@ export default function UniversityPartnershipsPage() {
         eyebrow="STRATEGIC INSTITUTIONAL VALUE"
         title="Why Global Universities Partner With Us"
         subtitle="Establish direct institutional engagement with Africa's leading high schools and lycées without speculative recruitment brokers or untracked commissions."
-        className="border-b border-border"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-left max-w-5xl mx-auto">
           {universityContent.benefits.map((benefit, idx) => {
@@ -279,7 +278,6 @@ export default function UniversityPartnershipsPage() {
         eyebrow="GLOBAL ADMISSIONS ACCORD"
         title="University Partnership Inquiry"
         subtitle="Submit your university's interest in receiving verified African student applications and co-hosting institutional briefings."
-        className="border-b border-border"
       >
         <div className="max-w-4xl mx-auto scroll-mt-28">
           <div className="bg-card border border-border rounded-3xl p-6 sm:p-10 lg:p-12 shadow-card text-left backdrop-blur relative overflow-hidden">

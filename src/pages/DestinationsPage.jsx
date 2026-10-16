@@ -24,7 +24,7 @@ export default function DestinationsPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION (New Theme: Gradient Hero + Rotating Orbital SVGs) */}
-      <section className="relative gradient-hero text-foreground pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-border">
+      <section className="relative gradient-hero text-foreground pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Ambient Pulsing Glow */}
         <div 
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"
@@ -123,7 +123,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* 2. STICKY REGION FILTER & SEARCH BAR */}
-      <section className="bg-card/95 backdrop-blur border-b border-border py-4 px-4 sm:px-6 lg:px-8 sticky top-[62px] z-30 shadow-xs">
+      <section className="bg-card/95 backdrop-blur py-4 px-4 sm:px-6 lg:px-8 sticky top-[62px] z-30 shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Region Filter Buttons */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none">

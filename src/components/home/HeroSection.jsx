@@ -31,7 +31,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative gradient-hero text-foreground pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-18 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-border">
+    <section className="relative gradient-hero text-foreground pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-18 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Ambient Pulsing Gradient Glow Behind Hero */}
       <div 
         className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[350px] sm:h-[450px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"

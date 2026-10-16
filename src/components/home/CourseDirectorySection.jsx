@@ -29,7 +29,6 @@ export default function CourseDirectorySection() {
       eyebrow={courseDirectory.eyebrow}
       title={courseDirectory.headline}
       subtitle={courseDirectory.description}
-      className="border-b border-slate-200"
     >
       <div className="max-w-4xl mx-auto">
         {/* Search Card Container */}

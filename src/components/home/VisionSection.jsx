@@ -14,7 +14,6 @@ export default function VisionSection() {
       align="center"
       eyebrow={vision.eyebrow}
       title={vision.title}
-      className="border-b border-slate-200"
     >
       <div className="max-w-4xl mx-auto mb-14 text-center">
         <p className="text-lg sm:text-xl text-slate-800 leading-relaxed font-normal">

@@ -15,7 +15,7 @@ export default function GlobalPathwaysSection() {
       eyebrow={globalPathways.eyebrow}
       title={globalPathways.title}
       subtitle={globalPathways.subtitle}
-      className="!border-b-0 !pb-10 sm:!pb-14"
+      className="!pb-10 sm:!pb-14"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
         {globalPathways.highlightCountries.map((item) => (

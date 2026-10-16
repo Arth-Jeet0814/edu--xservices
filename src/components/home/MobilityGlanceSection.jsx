@@ -14,7 +14,7 @@ export default function MobilityGlanceSection() {
       eyebrow={mobilityGlance.eyebrow}
       title={mobilityGlance.title}
       subtitle={mobilityGlance.subtitle}
-      className="py-12 sm:py-16 !border-t-0 !border-b-0"
+      className="py-12 sm:py-16"
     >
       {/* 3 Stat Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">

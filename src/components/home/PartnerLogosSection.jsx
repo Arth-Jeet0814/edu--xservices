@@ -18,7 +18,7 @@ export default function PartnerLogosSection() {
       eyebrow="GLOBAL INSTITUTIONAL ACCESS"
       title="Partner University & Academic Network"
       subtitle="Connecting our partner schools directly to selective international institutions, examination bodies, and accredited pathways."
-      className="border-b border-border overflow-hidden"
+      className="overflow-hidden"
     >
       {/* Infinite Scrolling Marquee Showcase */}
       <div className="relative w-full overflow-hidden py-3 marquee-container">

@@ -25,7 +25,6 @@ export default function ElitePositioningSection() {
       eyebrow={elitePositioning.eyebrow}
       title={elitePositioning.title}
       subtitle={elitePositioning.description}
-      className="border-b border-slate-200"
     >
       {/* 6 Feature Tiles */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14 text-left">

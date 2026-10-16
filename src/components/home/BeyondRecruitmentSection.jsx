@@ -12,7 +12,6 @@ export default function BeyondRecruitmentSection() {
       id="beyond-recruitment"
       background="light"
       align="left"
-      className="border-b border-slate-200"
     >
       {/* Top Badge */}
       <div className="mb-10">

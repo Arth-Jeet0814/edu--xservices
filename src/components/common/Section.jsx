@@ -17,13 +17,15 @@ export default function Section({
   const [sectionRef, isVisible] = useIntersectionObserver();
 
   const bgStyles = {
-    light: "bg-muted/40 text-foreground border-t border-border",
-    white: "bg-background text-foreground border-t border-border",
-    dark: "bg-primary text-primary-foreground border-t border-primary/20",
-    'navy-dark': "bg-navy-950 text-white border-t border-navy-900",
+    light: "gradient-sky text-foreground",
+    white: "gradient-sky text-foreground",
+    sky: "gradient-sky text-foreground",
+    hero: "gradient-hero text-foreground",
+    dark: "bg-primary text-primary-foreground",
+    'navy-dark': "bg-navy-950 text-white",
     'gradient-navy': "bg-primary text-primary-foreground",
     'gradient-hero': "gradient-hero text-foreground",
-    'gradient-sky': "gradient-sky text-foreground border-t border-border",
+    'gradient-sky': "gradient-sky text-foreground",
   };
 
   const alignStyles = {
@@ -38,9 +40,16 @@ export default function Section({
     <section
       id={id}
       ref={animate ? sectionRef : undefined}
-      className={`py-16 sm:py-24 relative overflow-hidden ${bgStyles[background] || bgStyles.light} ${animate ? `reveal-init ${isVisible ? 'reveal-visible' : ''}` : ''} ${className}`}
+      className={`-mt-px py-16 sm:py-24 relative z-10 overflow-hidden ${bgStyles[background] || bgStyles.light} ${animate ? `reveal-init ${isVisible ? 'reveal-visible' : ''}` : ''} ${className}`}
       {...props}
     >
+      {/* Ambient subtle glow for depth on light / sky gradient sections */}
+      {!isDarkBg && (
+        <div 
+          className="absolute -top-32 right-1/4 w-[500px] h-[350px] bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" 
+          aria-hidden="true" 
+        />
+      )}
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ${containerClassName}`}>
         {(eyebrow || title || subtitle) && (
           <div className={`max-w-3xl mb-12 sm:mb-16 flex flex-col ${alignStyles[align]}`}>

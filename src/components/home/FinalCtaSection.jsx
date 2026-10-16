@@ -12,7 +12,7 @@ export default function FinalCtaSection() {
       id="final-cta"
       background="gradient-hero"
       align="center"
-      className="py-16 sm:py-24 border-t border-border"
+      className="py-16 sm:py-24"
     >
       <div className="max-w-3xl mx-auto text-center space-y-6">
         <span className="inline-block text-xs font-bold uppercase tracking-widest text-primary">
