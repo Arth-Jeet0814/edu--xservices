@@ -159,9 +159,9 @@ export default function BookDemoPage() {
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Private Session</span>
                 </span>
-                <h3 className="font-display text-2xl font-extrabold text-foreground tracking-tight">
+                <h2 className="font-display text-2xl font-extrabold text-foreground tracking-tight">
                   Briefing Parameters
-                </h3>
+                </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed mt-1">
                   Conducted by senior institutional architects from Education eXcellence Services.
                 </p>

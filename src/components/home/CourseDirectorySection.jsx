@@ -32,15 +32,12 @@ export default function CourseDirectorySection() {
     >
       <div className="max-w-4xl mx-auto">
         {/* Search Card Container */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-card relative overflow-hidden">
-          {/* Subtle gold accent corner border */}
-          <div className="absolute top-0 right-0 w-28 h-28 bg-gold-500/5 rounded-bl-full pointer-events-none" />
-
+        <div className="bg-card/95 backdrop-blur-md border border-border/80 rounded-3xl p-6 sm:p-10 shadow-lift relative overflow-hidden ring-1 ring-black/[0.02]">
           <form onSubmit={handleSearch} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
               {/* Destination Dropdown */}
               <div>
-                <label htmlFor="destination-select" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                <label htmlFor="destination-select" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                   Preferred Destination
                 </label>
                 <select
@@ -50,7 +47,7 @@ export default function CourseDirectorySection() {
                     setDestination(e.target.value);
                     if (hasSearched) setHasSearched(false);
                   }}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600 transition-colors"
+                  className="w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary transition-all cursor-pointer"
                 >
                   <option value="">Select Destination</option>
                   {courseDirectory.destinations.map((dest) => (
@@ -63,7 +60,7 @@ export default function CourseDirectorySection() {
 
               {/* Study Level Dropdown */}
               <div>
-                <label htmlFor="study-level-select" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                <label htmlFor="study-level-select" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                   Study Level
                 </label>
                 <select
@@ -73,7 +70,7 @@ export default function CourseDirectorySection() {
                     setStudyLevel(e.target.value);
                     if (hasSearched) setHasSearched(false);
                   }}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600 transition-colors"
+                  className="w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary transition-all cursor-pointer"
                 >
                   <option value="">Select Study Level</option>
                   {courseDirectory.studyLevels.map((lvl) => (
@@ -86,7 +83,7 @@ export default function CourseDirectorySection() {
 
               {/* Field of Study Dropdown */}
               <div>
-                <label htmlFor="field-study-select" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+                <label htmlFor="field-study-select" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                   Field of Study
                 </label>
                 <select
@@ -96,7 +93,7 @@ export default function CourseDirectorySection() {
                     setFieldOfStudy(e.target.value);
                     if (hasSearched) setHasSearched(false);
                   }}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:border-navy-600 transition-colors"
+                  className="w-full bg-background border border-input rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary transition-all cursor-pointer"
                 >
                   <option value="">Select Field of Study</option>
                   {courseDirectory.fieldsOfStudy.map((fld) => (
@@ -109,13 +106,13 @@ export default function CourseDirectorySection() {
             </div>
 
             {/* Action Row */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
-              <span className="text-xs text-slate-500">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-border">
+              <span className="text-xs text-muted-foreground">
                 Institutional directory indexed from 189 accredited global partners.
               </span>
               <Button
                 type="submit"
-                variant="gold"
+                variant="accent"
                 size="md"
                 icon={Search}
                 className="w-full sm:w-auto"
@@ -127,20 +124,20 @@ export default function CourseDirectorySection() {
 
           {/* Submission Gate Modal / Message Box */}
           {hasSearched && (
-            <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-navy-950 border border-gold-500/50 text-center animate-in fade-in zoom-in-95 duration-300 animate-gold-glow">
-              <div className="w-14 h-14 rounded-full bg-gold-500/10 text-gold-400 border border-gold-500/30 flex items-center justify-center mx-auto mb-3 shadow-md animate-float">
+            <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-secondary/80 border border-primary/20 text-center animate-in fade-in zoom-in-95 duration-300">
+              <div className="w-14 h-14 rounded-full bg-accent/15 text-accent-foreground border border-accent/30 flex items-center justify-center mx-auto mb-3 shadow-md animate-float">
                 <Lock className="w-6 h-6" />
               </div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2 tracking-tight">
                 {courseDirectory.gateNotice}
               </h3>
-              <p className="text-sm text-slate-300 max-w-lg mx-auto mb-6 leading-relaxed">
+              <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-6 leading-relaxed">
                 Complete directory indices, tuition frameworks, merit scholarship quotas, and direct university submission pathways are accessible exclusively via verified partner school consoles.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   to="/book-a-demo"
-                  variant="gold"
+                  variant="accent"
                   size="md"
                   icon={ArrowRight}
                 >
@@ -150,15 +147,15 @@ export default function CourseDirectorySection() {
                   href={siteConfig.portalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-navy-900 hover:bg-navy-800 border border-gold-500/40 hover:border-gold-500 transition-all shadow-sm"
+                  className="group inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-semibold text-primary bg-background hover:bg-secondary border border-border hover:border-primary/40 transition-all shadow-xs"
                 >
                   <span>Partner Portal Login ({siteConfig.portalText})</span>
-                  <ArrowUpRight className="w-4 h-4 text-gold-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="group inline-flex items-center text-xs text-slate-400 hover:text-white px-3 py-2 transition-colors cursor-pointer"
+                  className="group inline-flex items-center text-xs text-muted-foreground hover:text-foreground px-3 py-2 transition-colors cursor-pointer"
                 >
                   <RefreshCw className="w-3.5 h-3.5 mr-1 group-hover:rotate-180 transition-transform duration-500" />
                   Reset

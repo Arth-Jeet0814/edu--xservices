@@ -35,23 +35,23 @@ export default function ElitePositioningSection() {
               key={idx}
               variant="light"
               hoverEffect={true}
-              className="group border border-slate-200/90 hover:border-navy-600/50 p-7 flex flex-col justify-between shadow-subtle hover:shadow-card-hover bg-white"
+              className="group p-7 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 group-hover:bg-navy-800 flex items-center justify-center mb-5 transition-colors shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-primary-soft text-primary border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground flex items-center justify-center mb-5 transition-all duration-300 shadow-xs">
                   <IconComponent className="w-6 h-6" />
                 </div>
-                <h3 className="font-display font-bold text-lg text-slate-900 mb-2 leading-tight tracking-tight">
+                <h3 className="font-display font-bold text-lg text-foreground mb-2 leading-tight tracking-tight group-hover:text-primary transition-colors">
                   {tile.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {tile.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-[11px] text-muted-foreground font-mono">
                 <span>SPEC-0{idx + 1}</span>
-                <span className="text-navy-700 font-semibold">Active Framework</span>
+                <span className="text-primary font-semibold">Active Framework</span>
               </div>
             </Card>
           );
@@ -59,13 +59,13 @@ export default function ElitePositioningSection() {
       </div>
 
       {/* Closing Bar */}
-      <div className="pt-8 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
-        <p className="font-display text-lg sm:text-xl font-semibold text-slate-200 tracking-tight">
+      <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+        <p className="font-display text-lg sm:text-xl font-bold text-foreground tracking-tight">
           "{elitePositioning.closingLine}"
         </p>
         <Button
           to="/book-a-demo"
-          variant="gold"
+          variant="accent"
           size="md"
           icon={ArrowRight}
           className="shrink-0"

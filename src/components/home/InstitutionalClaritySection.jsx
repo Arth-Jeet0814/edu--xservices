@@ -30,31 +30,31 @@ export default function InstitutionalClaritySection() {
               key={card.id}
               variant="light"
               hoverEffect={true}
-              className="flex flex-col justify-between border-t-4 border-t-gold-500 text-left h-full"
+              className="flex flex-col justify-between text-left h-full group"
             >
               <div>
                 {/* Icon & Highlight Badge */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center shadow-md">
+                  <div className="w-12 h-12 rounded-2xl bg-primary-soft text-primary border border-primary/20 flex items-center justify-center shadow-xs transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
                     <IconComponent className="w-6 h-6" />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-navy-900/70 bg-navy-900/5 px-2.5 py-1 rounded-md border border-navy-900/10">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary bg-primary-soft/80 px-2.5 py-1 rounded-full border border-primary/20">
                     {card.highlight}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900 mb-4 leading-snug tracking-tight">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4 leading-snug tracking-tight group-hover:text-primary transition-colors">
                   {card.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   {card.description}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center text-xs font-semibold uppercase tracking-wider text-gold-700">
+              <div className="pt-6 mt-6 border-t border-border flex items-center text-xs font-bold uppercase tracking-wider text-accent">
                 Institutional Capability
               </div>
             </Card>

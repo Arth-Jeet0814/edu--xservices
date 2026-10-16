@@ -135,7 +135,7 @@ export default function DestinationsPage() {
                 key={region}
                 type="button"
                 onClick={() => setActiveRegion(region)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-4 py-2 min-h-[40px] inline-flex items-center justify-center rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   activeRegion === region
                     ? 'bg-primary text-primary-foreground shadow-xs font-bold'
                     : 'bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground'
@@ -152,9 +152,10 @@ export default function DestinationsPage() {
             <input
               type="text"
               placeholder="Search destination country..."
+              aria-label="Search destination countries"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-background border border-input rounded-full text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary placeholder:text-muted-foreground transition-all"
+              className="w-full pl-9 pr-4 py-2.5 min-h-[40px] bg-background border border-input rounded-full text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary placeholder:text-muted-foreground transition-all"
             />
           </div>
         </div>
@@ -167,6 +168,7 @@ export default function DestinationsPage() {
         align="left"
         className="py-12 sm:py-16"
       >
+        <h2 className="sr-only">International Degree Pathways by Country</h2>
         <div className="mb-6 flex items-center justify-between text-xs text-muted-foreground">
           <span>Showing {filteredCountries.length} destination pathways</span>
           <span>Region Filter: <strong className="text-foreground">{activeRegion}</strong></span>

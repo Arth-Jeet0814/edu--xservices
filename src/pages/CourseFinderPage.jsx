@@ -271,6 +271,7 @@ export default function CourseFinderPage() {
                 type="text"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
+                aria-label="Search academic programs by degree title, subject or university"
                 placeholder="Search programs by degree title, subject or university (e.g. Artificial Intelligence, Robotics, Finance)..."
                 className="w-full pl-11 pr-4 py-3 bg-background border border-input rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-primary placeholder:text-muted-foreground transition-all"
               />
@@ -356,7 +357,7 @@ export default function CourseFinderPage() {
                 key={fld}
                 type="button"
                 onClick={() => setActiveQuickField(activeQuickField === fld ? '' : fld)}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-3.5 py-2 min-h-[40px] inline-flex items-center justify-center rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   activeQuickField === fld
                     ? 'bg-primary text-primary-foreground shadow-xs font-bold'
                     : 'bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground'

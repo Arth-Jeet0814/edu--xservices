@@ -167,7 +167,6 @@ export default function AboutUsPage() {
         eyebrow="MEASURABLE IMPACT"
         title="Coverage Across Five Continents"
         subtitle="Scale and depth powering institutional decision-making across selective African secondary education."
-        className="border-b border-border"
       >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {mobilityGlance.stats.map((stat, idx) => (
@@ -193,10 +192,12 @@ export default function AboutUsPage() {
       <section className="py-16 sm:py-20 gradient-sky">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-card card-hover-lift flex flex-col sm:flex-row items-center gap-7 text-center sm:text-left hover:border-primary/40 transition-all duration-300">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl overflow-hidden border-2 border-accent/60 shadow-md shrink-0 bg-navy-950 animate-gold-glow">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl overflow-hidden border-2 border-accent/60 shadow-md shrink-0 bg-primary animate-gold-glow">
               <img
                 src={siteConfig.founderImage}
                 alt={siteConfig.founderName}
+                width="128"
+                height="128"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />

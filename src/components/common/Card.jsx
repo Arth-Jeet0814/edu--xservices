@@ -8,7 +8,7 @@ export default function Card({
   padding = 'default',
   ...props
 }) {
-  const baseStyles = "rounded-2xl transition-all duration-200 border relative overflow-hidden";
+  const baseStyles = "rounded-3xl transition-all duration-300 border relative overflow-hidden";
 
   const paddingStyles = {
     none: "",
@@ -18,15 +18,15 @@ export default function Card({
   };
 
   const variantStyles = {
-    light: "bg-card border-border shadow-soft text-foreground",
-    cream: "bg-muted/40 border-border shadow-soft text-foreground",
-    dark: "bg-primary text-primary-foreground border-primary/20 shadow-soft",
+    light: "bg-card/95 backdrop-blur-sm border-border/80 shadow-soft text-foreground ring-1 ring-black/[0.02]",
+    cream: "bg-card/80 backdrop-blur-xs border-border/80 shadow-soft text-foreground",
+    dark: "gradient-primary text-primary-foreground border-primary/20 shadow-card",
     darkSubtle: "bg-primary/95 text-primary-foreground border-primary/20",
     navyMuted: "bg-primary text-primary-foreground border-primary/20 shadow-soft",
-    goldBorder: "bg-card border-2 border-accent/60 shadow-soft text-foreground",
+    goldBorder: "bg-card/95 backdrop-blur-sm border-2 border-accent/60 shadow-soft text-foreground",
   };
 
-  const hoverClass = hoverEffect ? "hover:shadow-card hover:-translate-y-1" : "";
+  const hoverClass = hoverEffect ? "hover:shadow-card hover:-translate-y-1 hover:border-primary/35" : "";
 
   return (
     <div

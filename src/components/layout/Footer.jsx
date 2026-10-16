@@ -155,9 +155,9 @@ export default function Footer() {
             <span>•</span>
             <Link to="/terms-conditions" className="hover:opacity-100">Terms & Conditions</Link>
             <span>•</span>
-            <a href="#partnerFormMain" className="hover:text-accent flex items-center gap-1">
+            <Link to="/#partnerFormMain" className="hover:text-accent flex items-center gap-1 transition-colors">
               Institutional Pre-Screening <ArrowUpRight className="w-3 h-3" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

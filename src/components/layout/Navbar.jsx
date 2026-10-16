@@ -68,19 +68,21 @@ export default function Navbar() {
       )}
 
       {/* Main Nav Container */}
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-200 ${!isScrolled ? 'py-3 sm:py-3.5' : 'py-2 sm:py-2.5'}`}>
-        <div className="flex items-center justify-between gap-4">
+      <div className={`max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 transition-all duration-200 ${!isScrolled ? 'py-3 sm:py-3.5' : 'py-2 sm:py-2.5'}`}>
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-xl p-1 shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-xl p-0.5 sm:p-1 shrink-0"
             aria-label={`${siteConfig.brandName} Home`}
           >
             {/* Official Favicon / Emblem Mark */}
-            <div className="w-10 h-10 rounded-2xl bg-primary-soft/80 p-1.5 border border-primary/20 flex items-center justify-center shadow-xs group-hover:border-primary/40 transition-colors shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-primary-soft/80 p-1.5 border border-primary/20 flex items-center justify-center shadow-xs group-hover:border-primary/40 transition-colors shrink-0">
               <img
                 src="/favicon.png"
                 alt="Education eXcellence Services Emblem"
+                width="40"
+                height="40"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -90,13 +92,15 @@ export default function Navbar() {
               <img
                 src="/logo.png"
                 alt="Education eXcellence Services"
+                width="200"
+                height="40"
                 className="h-9 sm:h-10 w-auto object-contain shrink-0 hidden sm:block"
               />
               <div className="sm:hidden flex flex-col">
-                <span className="font-display text-base font-extrabold text-foreground leading-tight whitespace-nowrap">
+                <span className="font-display text-sm font-extrabold text-foreground leading-tight whitespace-nowrap">
                   Education <span className="text-primary">eXcellence</span>
                 </span>
-                <span className="text-[10px] tracking-wider uppercase font-semibold text-muted-foreground whitespace-nowrap">
+                <span className="text-[9px] tracking-wider uppercase font-semibold text-muted-foreground whitespace-nowrap">
                   Services · Africa
                 </span>
               </div>
@@ -152,12 +156,12 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Hamburger Button (min-h-[44px] min-w-[44px] for WCAG 2.5.8) */}
           <div className="flex lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary"
+              className="inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-border text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >

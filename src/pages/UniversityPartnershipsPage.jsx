@@ -199,14 +199,15 @@ export default function UniversityPartnershipsPage() {
 
       {/* 2. RECOGNIZED ACADEMIC NETWORK MARQUEE STRIP */}
       <section className="gradient-sky py-6 overflow-hidden">
+        <h2 className="sr-only">Academic Institutions and Testing Authorities in Network</h2>
         <div className="max-w-7xl mx-auto px-4 mb-4 text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Academic Institutions & Testing Authorities in Our Network
           </span>
         </div>
         <div className="relative w-full overflow-hidden marquee-container py-1">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-background/90 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-background/90 to-transparent z-10" />
           <div className="animate-marquee flex items-center">
             {marqueeLogos.map((partner, idx) => (
               <div

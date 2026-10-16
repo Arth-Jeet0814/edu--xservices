@@ -15,8 +15,8 @@ export default function BeyondRecruitmentSection() {
     >
       {/* Top Badge */}
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-navy-950 text-xs sm:text-sm font-semibold max-w-3xl leading-relaxed">
-          <Shield className="w-4 h-4 text-gold-600 shrink-0" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 border border-accent/30 text-foreground text-xs sm:text-sm font-semibold max-w-3xl leading-relaxed shadow-xs">
+          <Shield className="w-4 h-4 text-accent shrink-0" />
           <span>{beyondRecruitment.badge}</span>
         </div>
       </div>
@@ -25,48 +25,48 @@ export default function BeyondRecruitmentSection() {
         {/* Left Column: Institutional Narrative (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <div className="space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-gold-600">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
               {beyondRecruitment.title}
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
               {beyondRecruitment.subtitle}
             </h2>
           </div>
 
-          <p className="text-lg text-slate-800 leading-relaxed font-normal">
+          <p className="text-lg text-foreground/90 leading-relaxed font-normal">
             {beyondRecruitment.lead}
           </p>
 
-          <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-subtle border-l-4 border-l-gold-500">
-            <p className="text-slate-900 font-medium italic text-base leading-relaxed">
+          <div className="p-5 sm:p-6 rounded-2xl bg-card/95 border border-border/80 shadow-soft ring-1 ring-black/[0.02]">
+            <p className="text-foreground font-semibold italic text-base leading-relaxed">
               "{beyondRecruitment.statement}"
             </p>
           </div>
 
           <div className="pt-2 space-y-4">
-            <h3 className="text-base font-bold text-navy-950 tracking-wide flex items-center gap-2">
-              <Eye className="w-4 h-4 text-gold-600" />
+            <h3 className="text-base font-bold text-foreground tracking-wide flex items-center gap-2">
+              <Eye className="w-4 h-4 text-accent" />
               <span>{beyondRecruitment.consoleHeading}</span>
             </h3>
 
             <div className="space-y-3">
               {beyondRecruitment.consoleItems.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 bg-white/80 p-3.5 rounded-lg border border-slate-200/70">
-                  <CheckCircle2 className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-slate-800 font-medium">{item}</span>
+                <div key={index} className="flex items-start gap-3 bg-card/80 p-3.5 rounded-xl border border-border/80 shadow-xs">
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-foreground font-medium">{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <p className="text-sm text-slate-600 pt-2 font-medium">
+          <p className="text-sm text-muted-foreground pt-2 font-medium">
             {beyondRecruitment.invitation}
           </p>
 
           <div className="pt-2">
             <Button
               to="/book-a-demo"
-              variant="navy"
+              variant="primary"
               size="lg"
               icon={ArrowRight}
               className="w-full sm:w-auto shadow-md"
