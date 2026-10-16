@@ -6,7 +6,7 @@
     "frontend"
   ],
   "scripts": {
-    "build": "cd frontend && npm install --include=dev && npm run build",
+    "build": "cd frontend && npm install --include=dev && npm run build && node -e \"try{require('fs').cpSync('frontend/dist','dist',{recursive:true})}catch(e){}\"",
     "dev": "cd frontend && npm run dev",
     "preview": "cd frontend && npm run preview"
   },
